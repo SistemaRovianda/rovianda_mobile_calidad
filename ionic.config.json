@@ -1,0 +1,7 @@
+{
+  "name": "rovianda_mobile_calidad",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
