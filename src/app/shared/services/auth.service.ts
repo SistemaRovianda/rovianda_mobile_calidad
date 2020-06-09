@@ -49,7 +49,7 @@ export class AuthService {
   isAuth(): boolean {
     return (
       localStorage.getItem("token") != null &&
-      localStorage.getItem("role") == "Empaquetado"
+      localStorage.getItem("role") == "QUALITY"
     );
   }
 
