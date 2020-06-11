@@ -1,0 +1,48 @@
+$color-text-primary: #575552;
+$color-text-secondary: #b2b2b2;
+
+ion-grid {
+  height: 80vh;
+  display: flex;
+
+  .title-menu {
+    color: $color-text-primary;
+    font-size: 3.8vw;
+    margin-top: 5%;
+    font-weight: 700;
+    margin-left: 5%;
+  }
+  .subtitle-menu {
+    color: $color-text-secondary;
+    margin-top: 4%;
+    font-size: 3.4vw;
+    margin-left: 5%;
+    margin-bottom: 15%;
+  }
+  .container-button {
+    height: 37vh;
+    width: 100%;
+  }
+}
+
+.container {
+  height: 80vh;
+  width: 100vw;
+}
+
+.btn {
+  height: 25vh;
+  width: 40vw;
+
+  //   padding: 100px;
+  &-menu {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    font-size: 1em;
+
+    @media (min-width: 600px) {
+      font-size: 2em;
+    }
+  }
+}

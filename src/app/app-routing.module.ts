@@ -17,6 +17,14 @@ const routes: Routes = [
     redirectTo: "login",
     pathMatch: "full",
   },
+  {
+    path: "menu",
+    // canActivate: [AuthGuard],
+    loadChildren: () =>
+      import("./features/landing/pages/menu/menu.module").then(
+        (m) => m.MenuModule
+      ),
+  },
 ];
 
 @NgModule({
