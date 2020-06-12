@@ -25,6 +25,13 @@ const routes: Routes = [
         (m) => m.MenuModule
       ),
   },
+  {
+    path: "product",
+    loadChildren: () =>
+      import("./features/product/products.module").then(
+        (m) => m.ProductsModule
+      ),
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,124 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-around">
+      <ion-col size="5">
+        <ion-row>
+          <ion-item class="form-input ion-no-padding">
+            <ion-label class="ion-label" position="floating"
+              >Producto*</ion-label
+            >
+            <ion-input placeholder="Ingresa producto" formControlName="product">
+            </ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'product') &&
+              (form.controls.product.touched || form.controls.product.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+          <ion-label *ngIf="form.hasError('whitespace', 'product')">
+            No has introducido caracteres.
+          </ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="5">
+        <ion-row>
+          <ion-item class="form-input ion-no-padding">
+            <ion-label class="ion-label" position="floating"
+              >Lote y caducidad*</ion-label
+            >
+            <ion-input
+              placeholder="Ingresar lote y caducidad"
+              formControlName="newLote"
+            >
+            </ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'newLote') &&
+              (form.controls.newLote.touched || form.controls.newLote.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+          <ion-label *ngIf="form.hasError('whitespace', 'newLote')">
+            No has introducido caracteres.
+          </ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-around">
+      <ion-col size="5">
+        <ion-row>
+          <ion-item class="form-input ion-no-padding">
+            <ion-label class="ion-label" position="floating"
+              >Fecha de ingreso*</ion-label
+            >
+            <ion-input placeholder="Ingresa fecha" formControlName="date">
+            </ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'date') &&
+              (form.controls.date.touched || form.controls.date.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+          <ion-label *ngIf="form.hasError('whitespace', 'date')">
+            No has introducido caracteres.
+          </ion-label>
+        </div>
+      </ion-col>
+
+      <ion-col size="5">
+        <ion-row>
+          <ion-item class="form-input ion-no-padding">
+            <ion-label class="ion-label" position="floating"
+              >No. Paquetes/Piezas*</ion-label
+            >
+            <ion-input placeholder="Ingresa número" formControlName="piece">
+            </ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'piece') &&
+              (form.controls.piece.touched || form.controls.piece.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+          <ion-label *ngIf="form.hasError('whitespace', 'piece')">
+            No has introducido caracteres.
+          </ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row style="padding-left: 15px;">
+      <ion-col size="12">
+        <ion-row>
+          <ion-item class="form-input ion-no-padding">
+            <ion-label class="ion-label" position="floating"
+              >Observaciones</ion-label
+            >
+            <ion-textarea
+              rows="2"
+              formControlName="observations"
+            ></ion-textarea>
+          </ion-item>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>

@@ -1,0 +1,10 @@
+<div class="steppers-container">
+  <ng-container *ngFor="let stepper of steppers; let i = index">
+    <button
+      class="button-stepper"
+      [ngClass]="stepper.value ? 'active' : 'normal'"
+      (click)="position(i)"
+      [disabled]="!stepper.value"
+    ></button>
+  </ng-container>
+</div>

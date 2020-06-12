@@ -238,4 +238,9 @@
   ion-item.form-input.ion-no-padding {
     --inner-padding-end: 0;
   }
+
+  ion-checkbox {
+    --border-color: #575552;
+    --border-width: 1px;
+  }
 }
