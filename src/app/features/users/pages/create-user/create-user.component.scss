@@ -1,0 +1,21 @@
+$color-text-primary: #575552;
+
+.title-menu,
+.text-dark {
+  color: $color-text-primary;
+  font-weight: bold;
+}
+
+.title-menu {
+  font-size: 1em;
+  padding-left: 15px;
+  margin: 5px;
+}
+
+.container {
+  padding: 0 10px;
+}
+
+.page {
+  height: 70vh;
+}

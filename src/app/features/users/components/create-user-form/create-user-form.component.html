@@ -1,0 +1,107 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-around">
+      <ion-col size="5" style="padding: 0;">
+        <ion-row>
+          <ion-item class="form-input ion-no-padding">
+            <ion-label class="ion-label" position="floating"
+              >Elaboro*</ion-label
+            >
+            <ion-input placeholder="Nombre" formControlName="nameElaborated">
+            </ion-input>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'nameElaborated') &&
+              (form.controls.nameElaborated.touched ||
+                form.controls.nameElaborated.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+          <ion-label *ngIf="form.hasError('whitespace', 'nameElaborated')">
+            No has introducido caracteres.
+          </ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="5" style="padding: 0;">
+        <ion-row>
+          <ion-item class="form-input ion-no-padding">
+            <ion-label class="ion-label" position="floating">Puesto*</ion-label>
+
+            <ion-select
+              placeholder="Seleccione puesto"
+              formControlName="jobElaborated"
+            >
+            </ion-select>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'jobElaborated') &&
+              (form.controls.jobElaborated.touched ||
+                form.controls.jobElaborated.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-around">
+      <ion-col size="5" style="padding: 0;">
+        <ion-row>
+          <ion-item class="form-input ion-no-padding">
+            <ion-label class="ion-label" position="floating"
+              >Verifico*</ion-label
+            >
+
+            <ion-select
+              placeholder="Seleccione nombre"
+              formControlName="nameVerify"
+            >
+            </ion-select>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'nameVerify') &&
+              (form.controls.nameVerify.touched ||
+                form.controls.nameVerify.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="5" style="padding: 0;">
+        <ion-row>
+          <ion-item class="form-input ion-no-padding">
+            <ion-label class="ion-label" position="floating">Puesto*</ion-label>
+
+            <ion-select
+              placeholder="Seleccione puesto"
+              formControlName="jobVerify"
+            >
+            </ion-select>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'jobVerify') &&
+              (form.controls.jobVerify.touched || form.controls.jobVerify.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>

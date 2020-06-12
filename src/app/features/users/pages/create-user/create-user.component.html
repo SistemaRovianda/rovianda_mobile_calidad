@@ -1,0 +1,41 @@
+<title-header
+  [titlePath]="'Salir'"
+  [path]="'/'"
+  [title]="'Hornos'"
+></title-header>
+
+<ion-content>
+  <div class="container">
+    <ion-grid>
+      <ion-row size="12">
+        <ion-col size="12">
+          <h1 class="title-menu">Usuarios</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row class="page">
+        <ion-col size="12">
+          <create-user-form></create-user-form>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-around">
+        <ion-button color="primary" size="short">
+          <ion-grid>
+            <ion-col>Regresar</ion-col>
+          </ion-grid>
+        </ion-button>
+        <ion-button color="secondary" size="short">
+          <ion-grid>
+            <ion-col *ngIf="!(loading$ | async)" size="12">Guardar</ion-col>
+            <ion-spinner *ngIf="loading$ | async" name="crescent"></ion-spinner>
+          </ion-grid>
+        </ion-button>
+        <ion-button color="primary" size="short">
+          <ion-grid>
+            <ion-col>Imprimir reporte</ion-col>
+          </ion-grid>
+        </ion-button>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

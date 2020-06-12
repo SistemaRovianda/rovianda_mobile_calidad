@@ -1,0 +1,51 @@
+$color-text-primary: #b2b2b2;
+$color-text-secondary: #575552;
+
+.title-menu,
+.text-dark {
+  color: $color-text-secondary;
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+.title-menu {
+  font-size: 1em;
+}
+
+ion-input {
+  font-size: 0.8em;
+}
+
+.ion-label {
+  width: 100vw;
+  color: $color-text-primary;
+  min-width: 100%;
+  max-width: none;
+}
+
+form {
+  width: 100%;
+  .form-input,
+  ion-datetime {
+    color: $color-text-secondary;
+    margin-top: 20px;
+  }
+  .error {
+    margin-top: 2%;
+    color: tomato;
+    font-size: 1.7vw;
+    height: 2%;
+    transform: 2s;
+  }
+  ion-button {
+    height: 10%;
+    width: 100%;
+    text-transform: none;
+    font-size: 3vw;
+    font-weight: 20;
+    margin: 0;
+    margin-top: 18%;
+    border-radius: 5px;
+    --ion-color-primary: #e2bd53;
+  }
+}
