@@ -1,3 +1,4 @@
+@import "../../../../../theme/mixins.scss";
 $color-text-primary: #575552;
 $color-text-secondary: #b2b2b2;
 
@@ -7,17 +8,54 @@ ion-grid {
 
   .title-menu {
     color: $color-text-primary;
-    font-size: 3.8vw;
     margin-top: 5%;
     font-weight: 700;
     margin-left: 5%;
+    @include breakpoint-size(ms-extra-small) {
+      font-size: var(--fs-text-title-xsm);
+      height: 35px;
+    }
+
+    @include breakpoint-size(ms-small) {
+      font-size: var(--fs-text-title-sm);
+      height: 45px;
+    }
+
+    @include breakpoint-size(ms-medium) {
+      font-size: var(--fs-text-title-md);
+      height: 30px;
+    }
+
+    @include breakpoint-size(ms-extra-large) {
+      font-size: var(--fs-text-title-xl);
+      height: 40px;
+    }
   }
   .subtitle-menu {
     color: $color-text-secondary;
     margin-top: 4%;
-    font-size: 3.4vw;
     margin-left: 5%;
     margin-bottom: 15%;
+
+    @include breakpoint-size(ms-extra-small) {
+      font-size: var(--fs-text-title-xsm);
+      height: 35px;
+    }
+
+    @include breakpoint-size(ms-small) {
+      font-size: var(--fs-text-title-sm);
+      height: 45px;
+    }
+
+    @include breakpoint-size(ms-medium) {
+      font-size: var(--fs-text-title-md);
+      height: 30px;
+    }
+
+    @include breakpoint-size(ms-extra-large) {
+      font-size: var(--fs-text-title-xl);
+      height: 40px;
+    }
   }
   .container-button {
     height: 37vh;
@@ -39,10 +77,21 @@ ion-grid {
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    font-size: 1em;
 
-    @media (min-width: 600px) {
-      font-size: 2em;
+    @include breakpoint-size(ms-extra-small) {
+      font-size: var(--fs-text-title-xsm);
+    }
+
+    @include breakpoint-size(ms-small) {
+      font-size: var(--fs-text-title-sm);
+    }
+
+    @include breakpoint-size(ms-medium) {
+      font-size: var(--fs-text-title-md);
+    }
+
+    @include breakpoint-size(ms-extra-large) {
+      font-size: var(--fs-text-title-xl);
     }
   }
 }

@@ -1,5 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Storage } from "@ionic/storage";
+import { Store } from "@ngrx/store";
+import { from, Observable } from "rxjs";
+import { usersSelector } from "src/app/features/users/store/users/users.selectors";
+import { AppState } from "src/app/shared/models/app-state.interface";
+import { UserRegistered } from "src/app/shared/models/user.interface";
 import { whitespaceValidator } from "src/app/shared/validators/whitespace.validator";
 
 @Component({
@@ -9,15 +15,38 @@ import { whitespaceValidator } from "src/app/shared/validators/whitespace.valida
 })
 export class CreateUserFormComponent implements OnInit {
   @Output("onSubmit") submit = new EventEmitter();
+
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  nameElaborated: Observable<string>;
+
+  job: Observable<string>;
+
+  users: Observable<UserRegistered[]>;
+
+  userVerifyJob: string;
+
+  constructor(
+    private fb: FormBuilder,
+    private storage: Storage,
+    private store: Store<AppState>
+  ) {
     this.form = fb.group({
       nameElaborated: ["", [Validators.required, whitespaceValidator]],
       jobElaborated: ["", [Validators.required]],
       nameVerify: ["", [Validators.required]],
       jobVerify: ["", [Validators.required, whitespaceValidator]],
     });
+
+    this.nameElaborated = from(
+      this.storage.get("currentUser").then((res) => Promise.resolve(res))
+    );
+
+    this.job = from(
+      this.storage.get("job").then((res) => Promise.resolve(res))
+    );
+
+    this.users = this.store.select(usersSelector);
   }
 
   ngOnInit() {}
@@ -32,9 +61,15 @@ export class CreateUserFormComponent implements OnInit {
     const user = {
       nameElaborated: nameElaborated.trim(),
       jobElaborated: jobElaborated.trim(),
-      nameVerify: nameVerify.trim(),
+      nameVerify: nameVerify.fullName,
       jobVerify: jobVerify.trim(),
     };
+
     this.submit.emit(user);
+  }
+
+  selectNameVerify(evt) {
+    console.log("seleccino: ", evt.detail.value.job);
+    this.userVerifyJob = evt.detail.value.job;
   }
 }

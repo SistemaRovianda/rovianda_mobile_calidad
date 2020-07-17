@@ -1,8 +1,8 @@
-import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 import { IonicModule } from "@ionic/angular";
-import { AcceptanceDataFormComponent } from "./acceptance-data-form.component";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { DryingLabelFormComponent } from "./drying-label-form.component";
 
 const COMMON_IMPORTS = [
   CommonModule,
@@ -11,11 +11,11 @@ const COMMON_IMPORTS = [
   FormsModule,
 ];
 
-const COMMON_DECLARATIONS = [AcceptanceDataFormComponent];
+const COMMON_DECLARATIONS = [DryingLabelFormComponent];
 
 @NgModule({
   imports: COMMON_IMPORTS,
   declarations: COMMON_DECLARATIONS,
   exports: COMMON_DECLARATIONS,
 })
-export class AcceptanceDataFormModule {}
+export class DryingLabelFormModule {}

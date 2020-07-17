@@ -1,9 +1,14 @@
-<title-header [title]="'Calidad'" [titlePath]="'Salir'" (onBack)="onBack($event)">
+<title-header
+  [title]="'Calidad'"
+  [titlePath]="'Salir'"
+  (onBack)="onBack($event)"
+>
 </title-header>
 
-
 <ion-content>
-  <ion-grid class="ion-justify-content-center ion-align-self-center ion-text-center ion-align-items-center">
+  <ion-grid
+    class="ion-justify-content-center ion-align-self-center ion-text-center ion-align-items-center"
+  >
     <ion-row size="12" class="ion-justify-content-around" style="width: 100%;">
       <ion-row size="5">
         <ion-button href="/product/inspection" color="secondary" class="btn">
@@ -18,7 +23,7 @@
         </ion-button>
       </ion-row>
       <ion-row size="5">
-        <ion-button href="" color="secondary" class="btn">
+        <ion-button href="/product/drying-label" color="secondary" class="btn">
           <div class="btn-menu">
             <span>
               Etiqueta

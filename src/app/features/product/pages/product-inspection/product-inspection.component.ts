@@ -7,6 +7,7 @@ import { AppState } from "src/app/shared/models/app-state.interface";
 import { AcceptanceDataFormComponent } from "../../components/acceptance-data-form/acceptance-data-form.component";
 import { AcceptanceDataSecondFormComponent } from "../../components/acceptance-data-second-form/acceptance-data-second-form.component";
 import { AcceptanceDataThirdFormComponent } from "../../components/acceptance-data-third-form/acceptance-data-third-form.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-product-inspection",
@@ -45,7 +46,7 @@ export class ProductInspectionComponent implements OnInit {
 
   index$: BehaviorSubject<number> = new BehaviorSubject(0);
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private route: Router) {}
 
   ngOnInit() {
     this.store.dispatch(fromStepperActions.stepperInit({ steps: this.steps }));
@@ -114,5 +115,9 @@ export class ProductInspectionComponent implements OnInit {
     console.log(i);
 
     this.index$.next(i);
+  }
+
+  onBack(evt) {
+    this.route.navigateByUrl("/menu");
   }
 }

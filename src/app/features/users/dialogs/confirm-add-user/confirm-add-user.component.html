@@ -1,0 +1,26 @@
+<ion-grid>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-align-self-center">
+      <div>
+        <p>
+          Una vez guardada la información no podrá ser modificada
+        </p>
+        <p class="ion-text-center">
+          ¿Deseas guardar la información?
+        </p>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-align-self-center">
+      <ion-button class="accept" (click)="accept()">
+        Aceptar
+      </ion-button>
+    </ion-col>
+    <ion-col class="ion-align-self-center">
+      <ion-button class="cancel" (click)="cancel()">
+        Cancelar
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

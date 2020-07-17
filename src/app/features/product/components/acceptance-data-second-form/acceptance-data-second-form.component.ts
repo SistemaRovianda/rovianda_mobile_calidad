@@ -15,6 +15,9 @@ export class AcceptanceDataSecondFormComponent implements OnInit {
   @Output("onSubmit") submit = new EventEmitter();
   form: FormGroup;
 
+  checked: boolean;
+  unchecked: boolean;
+
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
       control: [[], [Validators.required]],

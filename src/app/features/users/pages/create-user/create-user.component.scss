@@ -1,21 +1,112 @@
-$color-text-primary: #575552;
-
-.title-menu,
-.text-dark {
-  color: $color-text-primary;
-  font-weight: bold;
-}
-
-.title-menu {
-  font-size: 1em;
-  padding-left: 15px;
-  margin: 5px;
-}
+@import "../../../../../theme/mixins.scss";
 
 .container {
-  padding: 0 10px;
-}
+  height: 100%;
 
-.page {
-  height: 70vh;
+  &--all {
+    @include breakpoint-size(ms-extra-small) {
+      min-height: 800px;
+    }
+
+    @include breakpoint-size(ms-small) {
+      min-height: 1000px;
+    }
+
+    @include breakpoint-size(ms-medium) {
+      min-height: 500px;
+    }
+
+    @include breakpoint-size(ms-extra-large) {
+      min-height: 700px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    @include breakpoint-size(ms-extra-small) {
+      font-size: var(--fs-text-title-xsm);
+    }
+
+    @include breakpoint-size(ms-small) {
+      font-size: var(--fs-text-title-sm);
+    }
+
+    @include breakpoint-size(ms-medium) {
+      font-size: var(--fs-text-title-md);
+    }
+
+    @include breakpoint-size(ms-extra-large) {
+      font-size: var(--fs-text-title-xl);
+    }
+  }
+
+  &__button {
+    @include breakpoint-size(ms-extra-small) {
+      font-size: var(--fs-text-title-xsm);
+      height: 35px;
+    }
+
+    @include breakpoint-size(ms-small) {
+      font-size: var(--fs-text-title-sm);
+      height: 45px;
+    }
+
+    @include breakpoint-size(ms-medium) {
+      font-size: var(--fs-text-title-md);
+      height: 30px;
+    }
+
+    @include breakpoint-size(ms-extra-large) {
+      font-size: var(--fs-text-title-xl);
+      height: 40px;
+    }
+  }
+
+  &__row {
+    &--title {
+      @include breakpoint-size(ms-extra-small) {
+        height: 5%;
+      }
+
+      @include breakpoint-size(ms-small) {
+        height: 4%;
+      }
+
+      @include breakpoint-size(ms-medium) {
+        height: 8%;
+      }
+
+      @include breakpoint-size(ms-extra-large) {
+        height: 7%;
+      }
+    }
+
+    &--form {
+      @include breakpoint-size(ms-extra-small) {
+        height: 85%;
+      }
+
+      @include breakpoint-size(ms-small) {
+        height: 86%;
+      }
+
+      @include breakpoint-size(ms-medium) {
+        height: 82%;
+      }
+
+      @include breakpoint-size(ms-extra-large) {
+        height: 83%;
+      }
+    }
+
+    &--buttons {
+      @include breakpoint-size(ms-extra-small) {
+        height: 10%;
+      }
+
+      @include breakpoint-size(ms-small) {
+        height: 10%;
+      }
+    }
+  }
 }

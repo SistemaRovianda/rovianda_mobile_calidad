@@ -1,41 +1,52 @@
 <title-header
-  [titlePath]="'Salir'"
-  [path]="'/'"
+  [titlePath]="'Regresar'"
   [title]="'Hornos'"
+  (onBack)="onBackPage($event)"
 ></title-header>
 
 <ion-content>
-  <div class="container">
-    <ion-grid>
-      <ion-row size="12">
-        <ion-col size="12">
-          <h1 class="title-menu">Usuarios</h1>
-        </ion-col>
-      </ion-row>
-      <ion-row class="page">
-        <ion-col size="12">
-          <create-user-form></create-user-form>
-        </ion-col>
-      </ion-row>
+  <ion-grid class="container container--all">
+    <ion-row class="container container__row container__row--title" size="12">
+      <ion-col class="container container__column" size="12">
+        <h1 class="container container__title">Usuarios</h1>
+      </ion-col>
+    </ion-row>
 
-      <ion-row class="ion-justify-content-around">
-        <ion-button color="primary" size="short">
-          <ion-grid>
-            <ion-col>Regresar</ion-col>
-          </ion-grid>
-        </ion-button>
-        <ion-button color="secondary" size="short">
-          <ion-grid>
-            <ion-col *ngIf="!(loading$ | async)" size="12">Guardar</ion-col>
-            <ion-spinner *ngIf="loading$ | async" name="crescent"></ion-spinner>
-          </ion-grid>
-        </ion-button>
-        <ion-button color="primary" size="short">
-          <ion-grid>
-            <ion-col>Imprimir reporte</ion-col>
-          </ion-grid>
-        </ion-button>
-      </ion-row>
-    </ion-grid>
-  </div>
+    <ion-row class="container container__row container__row--form">
+      <ion-col class="container container__column" size="12">
+        <create-user-form (onSubmit)="onSubmitUsers($event)"></create-user-form>
+      </ion-col>
+    </ion-row>
+
+    <ion-row
+      class="container container__row container__row--buttons ion-justify-content-around"
+    >
+      <ion-button
+        class="container container__button"
+        color="primary"
+        size="short"
+        (click)="onBack()"
+      >
+        Regresar
+      </ion-button>
+      <ion-button
+        class="container container__button"
+        color="secondary"
+        size="short"
+        (click)="addUsers()"
+      >
+        <!-- <span *ngIf="!(loading$ | async)" size="12">GUARDAR</span> -->
+        GUARDAR
+        <ion-spinner *ngIf="loading$ | async" name="crescent"></ion-spinner>
+      </ion-button>
+      <ion-button
+        class="container container__button"
+        color="primary"
+        size="short"
+        (click)="generateReportPDF()"
+      >
+        Imprimir reporte
+      </ion-button>
+    </ion-row>
+  </ion-grid>
 </ion-content>

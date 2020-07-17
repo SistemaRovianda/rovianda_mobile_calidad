@@ -1,0 +1,44 @@
+<title-header
+  [titlePath]="'Regresar'"
+  [title]="'Calidad'"
+  (onBack)="onBack($event)"
+></title-header>
+
+<ion-content>
+  <div class="container">
+    <ion-grid>
+      <ion-row size="12">
+        <ion-col size="12">
+          <h1 class="title-menu">Datos de aceptación</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <div class="page">
+            <drying-label-form
+              #form
+              (onSubmit)="onSubmit($event)"
+            ></drying-label-form>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-grid>
+    <div class="container">
+      <ion-row class="ion-justify-content-center" size="12">
+        <ion-button
+          color="secondary"
+          size="medium"
+          (click)="form.onSubmit()"
+          [disabled]="form.form.invalid"
+        >
+          <ion-grid>
+            <ion-col>Guardar</ion-col>
+          </ion-grid>
+        </ion-button>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>
