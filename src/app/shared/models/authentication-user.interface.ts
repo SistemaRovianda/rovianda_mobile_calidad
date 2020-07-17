@@ -2,8 +2,8 @@ export interface AuthenticationUser {
   uid?: string;
   token?: string;
   name?: string;
-  surname?: string;
+  firstSurname?: string;
   lastSurname?: string;
-  role?: string;
+  rol?: string;
   email?: string;
 }

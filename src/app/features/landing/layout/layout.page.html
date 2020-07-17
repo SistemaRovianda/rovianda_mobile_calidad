@@ -1,12 +1,14 @@
-<ion-grid class="container">
-  <ion-row class="item-head">
-    <ion-col size="12" class="ion-align-self-end">
-      <h1>Calidad</h1>
-    </ion-col>
-  </ion-row>
-  <ion-row class="item-body">
-    <ion-col size="12">
-      <app-login-form (onSubmit)="onLogin($event)"></app-login-form>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<ion-content>
+  <ion-grid fixed class="container container--all">
+    <ion-row class="container container__row container__row--title">
+      <ion-col class="container container__column container__column--title" size="12">
+        <h1 class="container container__title">Calidad</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row class="container container__row container__row--form item-body">
+      <ion-col class="container container__column container__column--form" size="12">
+        <app-login-form (onSubmit)="onLogin($event)"></app-login-form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

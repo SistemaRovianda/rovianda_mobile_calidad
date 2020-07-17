@@ -8,6 +8,7 @@ import {
 } from "@angular/router";
 import { Observable } from "rxjs";
 import { AuthService } from "../Services/auth.service";
+import { mergeMap } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
@@ -23,10 +24,18 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this._authService.isAuth()) {
-      return true;
-    }
-    this._router.navigate(["/login"], { replaceUrl: true });
-    return true;
+    return this.checkLogin();
+  }
+
+  checkLogin(): Observable<boolean> {
+    return this._authService.isAuth().pipe(
+      mergeMap(
+        (val) => this._authService.verifyRole(),
+        (val1, val2) => {
+          console.log("[Auth] mergeMap: token: ", val1, "role: ", val2);
+          return val1 && val2 ? true : false;
+        }
+      )
+    );
   }
 }

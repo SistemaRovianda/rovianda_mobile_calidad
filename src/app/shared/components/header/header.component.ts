@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 
 @Component({
   selector: "title-header",
@@ -6,11 +6,18 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./header.component.scss"],
 })
 export class TitleHeaderComponent implements OnInit {
-  @Input() titlePath: string;
-  @Input() path: string;
   @Input() title: string;
+
+  @Input() titlePath: string;
+
+  @Output("onBack") onBack = new EventEmitter();
 
   constructor() {}
 
   ngOnInit() {}
+
+  onClick() {
+    console.log("click");
+    this.onBack.emit(this.titlePath);
+  }
 }

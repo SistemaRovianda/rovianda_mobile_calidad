@@ -8,6 +8,7 @@ import { AuthenticationUser } from "../models/authentication-user.interface";
 import Auth = firebase.auth.Auth;
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
+import { Storage } from "@ionic/storage";
 
 @Injectable({
   providedIn: "root",
@@ -20,6 +21,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private _router: Router,
+    private _storage: Storage,
     @Inject(API_ENDPOINT_PROVIDER) private endpoint
   ) {
     firebase.initializeApp({
@@ -46,11 +48,24 @@ export class AuthService {
     return this.http.get<AuthenticationUser>(`${this.url}/user/${uid}`);
   }
 
-  isAuth(): boolean {
-    return (
-      localStorage.getItem("token") != null &&
-      localStorage.getItem("role") == "QUALITY"
-    );
+  isAuth(): Observable<any> {
+    return from(
+      this._storage.get("token").then((token) => {
+        console.log("Token: ", token);
+        if (token) return Promise.resolve(true);
+        return false;
+      })
+    ).pipe(map((val) => val));
+  }
+
+  verifyRole(): Observable<boolean> {
+    return from(
+      this._storage.get("role").then((role) => {
+        console.log("rol: ", role);
+        if (role != null && role == "QUALITY") return Promise.resolve(true);
+        return Promise.resolve(false);
+      })
+    ).pipe(map((res) => res));
   }
 
   getTokenCurrentUser(): Observable<any> {
@@ -67,7 +82,9 @@ export class AuthService {
   }
 
   signOut(): Observable<any> {
-    localStorage.clear();
+    this._storage.clear().then((res) => {
+      console.log("Clear Storage");
+    });
     return from(
       this.auth.signOut().then(() => {
         this._router.navigate(["/"], { replaceUrl: true });

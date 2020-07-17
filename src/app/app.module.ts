@@ -16,12 +16,15 @@ import { AppProvidersModule } from "./providers/app-providers.module";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { reducers, metaReducers } from "./shared/store/reducer/index.reducer";
 
+import { IonicStorageModule } from "@ionic/storage";
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     StoreModule.forRoot(reducers, {
       metaReducers,

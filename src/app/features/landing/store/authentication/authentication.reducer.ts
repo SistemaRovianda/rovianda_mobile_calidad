@@ -11,7 +11,10 @@ export const authenticationReducer = createReducer<AuthenticationUser>(
     token: null,
     email: null,
     name: null,
-    role: null,
+    lastSurname: null,
+    firstSurname: null,
+    uid: null,
+    rol: null,
   },
 
   on(loadUser, (state, userCredentials) => ({
@@ -26,10 +29,12 @@ export const authenticationReducer = createReducer<AuthenticationUser>(
 
   on(clearUser, (state) => ({
     ...state,
+    uid: null,
     email: null,
-    role: null,
+    rol: null,
     name: null,
+    firstSurname: null,
+    lastSurname: null,
     token: null,
-    currentToken: null,
   }))
 );
