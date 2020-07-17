@@ -1,0 +1,34 @@
+@import "../../../../../theme/mixins.scss";
+
+.grid-container {
+  height: 100%;
+
+  .row {
+    &-1 {
+      height: 80%;
+      ion-col {
+        .container-pdf {
+          height: 100%;
+
+          .image-icon {
+            @include flexible(row, center, center);
+            height: 80%;
+          }
+
+          .text {
+            @include flexible(row, center, center);
+            height: 20%;
+            font-size: 1.5em;
+          }
+        }
+      }
+    }
+
+    &-2 {
+      height: 20%;
+      ion-col {
+        @include flexible(row, center, center);
+      }
+    }
+  }
+}

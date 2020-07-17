@@ -1,0 +1,43 @@
+@import "../../../../../theme/mixins.scss";
+
+.btn {
+  margin-left: 10px;
+}
+
+.buttons {
+  margin-top: 20px;
+
+  ion-label,
+  ion-button {
+    @include breakpoint-size(ms-extra-small) {
+      font-size: var(--fs-text-xsm) !important;
+    }
+
+    @include breakpoint-size(ms-small) {
+      font-size: var(--fs-text-sm) !important;
+    }
+
+    @include breakpoint-size(ms-extra-large) {
+      font-size: var(--fs-text-xl) !important;
+    }
+  }
+}
+
+.label {
+  margin-left: 10px;
+  @include breakpoint-size(ms-extra-small) {
+    font-size: var(--fs-text-xsm) !important;
+  }
+
+  @include breakpoint-size(ms-small) {
+    font-size: var(--fs-text-sm) !important;
+  }
+
+  @include breakpoint-size(ms-extra-large) {
+    font-size: var(--fs-text-xl) !important;
+  }
+}
+
+.content {
+  padding: 20px 20px 0 20px;
+}
