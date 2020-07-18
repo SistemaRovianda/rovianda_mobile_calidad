@@ -13,6 +13,8 @@ import * as fromActionsProduct from "../../../product/store/product-inspection/p
 import * as fromCatalogLots from "../../../product/store/catalog-lots/catalog-lots.selector";
 import { lotResponse } from "src/app/shared/models/product-inspection.interface";
 
+import * as fromCatalogLotsActions from "../../../product/store/catalog-lots/catalog-lots.actions";
+
 @Component({
   selector: "app-product-inspection",
   templateUrl: "./product-inspection.component.html",
@@ -69,6 +71,13 @@ export class ProductInspectionComponent implements OnInit {
         this.disabledButton = this.firstForm.form.invalid;
       });
     }, 500);
+
+    this.store.dispatch(
+      fromCatalogLotsActions.fetchAllLots({
+        typeLot: "DRIEF",
+        status: "PENDING",
+      })
+    );
   }
 
   onSubmit(payload) {
