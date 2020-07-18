@@ -1,7 +1,7 @@
 import { createSelector } from "@ngrx/store";
-import { AppState } from "src/app/shared/models/app-state.interface";
+import { AppStoreState } from "src/app/shared/models/app-state.interface";
 
-const SELECT_LOGIN = (state: AppState) => state.login;
+const SELECT_LOGIN = (state: AppStoreState) => state.login;
 
 export const SELECT_IS_LOADING = createSelector(
   SELECT_LOGIN,

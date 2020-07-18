@@ -20,7 +20,7 @@ export class AcceptanceDataSecondFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
-      control: [[], [Validators.required]],
+      control: ["", [Validators.required]],
       materia: ["", [Validators.required]],
       transport: ["", [Validators.required]],
       weight: ["", [Validators.required]],

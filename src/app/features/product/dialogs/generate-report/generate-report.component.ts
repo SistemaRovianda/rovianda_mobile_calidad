@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import { Store } from "@ngrx/store";
-import { AppState } from "src/app/shared/Models/app-state.interface";
+import { AppStoreState } from "src/app/shared/Models/app-state.interface";
 
 @Component({
   selector: "app-generate-report",
@@ -13,7 +13,7 @@ export class GenerateReportComponent implements OnInit {
 
   constructor(
     public modalController: ModalController,
-    private store: Store<AppState>
+    private store: Store<AppStoreState>
   ) {}
 
   ngOnInit() {}

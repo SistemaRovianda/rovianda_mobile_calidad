@@ -1,7 +1,7 @@
 import { createSelector } from "@ngrx/store";
-import { AppState } from "../../models/app-state.interface";
+import { AppStoreState } from "../../models/app-state.interface";
 
-const SELECT_STEPPER_INITIAL = (state: AppState) => state.stepper;
+const SELECT_STEPPER_INITIAL = (state: AppStoreState) => state.stepper;
 
 export const SELECT_STEPS = createSelector(
   SELECT_STEPPER_INITIAL,

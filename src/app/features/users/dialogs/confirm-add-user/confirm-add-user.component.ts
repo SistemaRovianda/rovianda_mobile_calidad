@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import { Store } from "@ngrx/store";
 import { registerUsers } from "../../store/users/users.actions";
-import { AppState } from "src/app/shared/models/app-state.interface";
+import { AppStoreState } from "src/app/shared/models/app-state.interface";
 
 @Component({
   selector: "app-confirm-add-user",
@@ -14,7 +14,7 @@ export class ConfirmAddUserComponent implements OnInit {
   @Input() id;
 
   constructor(
-    private store: Store<AppState>,
+    private store: Store<AppStoreState>,
     private _modalCtrl: ModalController
   ) {}
 

@@ -4,7 +4,7 @@ import { Storage } from "@ionic/storage";
 import { Store } from "@ngrx/store";
 import { from, Observable } from "rxjs";
 import { usersSelector } from "src/app/features/users/store/users/users.selectors";
-import { AppState } from "src/app/shared/models/app-state.interface";
+import { AppStoreState } from "src/app/shared/models/app-state.interface";
 import { UserRegistered } from "src/app/shared/models/user.interface";
 import { whitespaceValidator } from "src/app/shared/validators/whitespace.validator";
 
@@ -29,7 +29,7 @@ export class CreateUserFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private storage: Storage,
-    private store: Store<AppState>
+    private store: Store<AppStoreState>
   ) {
     this.form = fb.group({
       nameElaborated: ["", [Validators.required, whitespaceValidator]],

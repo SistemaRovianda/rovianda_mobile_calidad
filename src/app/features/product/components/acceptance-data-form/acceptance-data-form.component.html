@@ -5,37 +5,23 @@
         <ion-row>
           <ion-item class="form-input ion-no-padding">
             <ion-label class="ion-label" position="floating"
-              >Producto*</ion-label
-            >
-            <ion-input placeholder="Ingresa producto" formControlName="product">
-            </ion-input>
-          </ion-item>
-        </ion-row>
-        <div class="error">
-          <ion-label
-            *ngIf="
-              form.hasError('required', 'product') &&
-              (form.controls.product.touched || form.controls.product.dirty)
-            "
-          >
-            Este campo es requerido.
-          </ion-label>
-          <ion-label *ngIf="form.hasError('whitespace', 'product')">
-            No has introducido caracteres.
-          </ion-label>
-        </div>
-      </ion-col>
-      <ion-col size="5">
-        <ion-row>
-          <ion-item class="form-input ion-no-padding">
-            <ion-label class="ion-label" position="floating"
               >Lote y caducidad*</ion-label
             >
-            <ion-input
-              placeholder="Ingresar lote y caducidad"
+
+            <ion-select
+              placeholder="Ingresa lote"
+              style="--placeholder-color: black; --placeholder-opacity: 0.9;"
               formControlName="newLote"
+              interface="action-sheet"
+              (ionBlur)="change()"
+              [disabled]="disabled(lots)"
             >
-            </ion-input>
+              <ng-container *ngFor="let lot of lots">
+                <ion-select-option [value]="lot">
+                  {{ lot.loteId }}
+                </ion-select-option>
+              </ng-container>
+            </ion-select>
           </ion-item>
         </ion-row>
         <div class="error">
@@ -48,6 +34,42 @@
             Este campo es requerido.
           </ion-label>
           <ion-label *ngIf="form.hasError('whitespace', 'newLote')">
+            No has introducido caracteres.
+          </ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="5">
+        <ion-row>
+          <ion-item class="form-input ion-no-padding">
+            <ion-label class="ion-label" position="floating"
+              >Producto*</ion-label
+            >
+
+            <ion-select
+              placeholder="Seleccione un producto"
+              formControlName="product"
+              interface="action-sheet"
+              (ionChange)="onChangeProduct($event)"
+              [disabled]="disabled(filterProducts)"
+            >
+              <ng-container *ngFor="let product of filterProducts">
+                <ion-select-option [value]="product">
+                  {{ product.description }} - {{ product.quantity }}
+                </ion-select-option>
+              </ng-container>
+            </ion-select>
+          </ion-item>
+        </ion-row>
+        <div class="error">
+          <ion-label
+            *ngIf="
+              form.hasError('required', 'product') &&
+              (form.controls.product.touched || form.controls.product.dirty)
+            "
+          >
+            Este campo es requerido.
+          </ion-label>
+          <ion-label *ngIf="form.hasError('whitespace', 'product')">
             No has introducido caracteres.
           </ion-label>
         </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { AppState } from "src/app/shared/models/app-state.interface";
+import { AppStoreState } from "src/app/shared/models/app-state.interface";
 import { signOut } from "../../../../features/landing/store/login/login.action";
 import { ModalController } from "@ionic/angular";
 import { GenerateReportComponent } from "../../dialogs/generate-report/generate-report.component";
@@ -12,7 +12,7 @@ import { GenerateReportComponent } from "../../dialogs/generate-report/generate-
 })
 export class DryingLabelComponent implements OnInit {
   constructor(
-    private _store: Store<AppState>,
+    private _store: Store<AppStoreState>,
     public modalController: ModalController
   ) {}
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { AppState } from "src/app/shared/models/app-state.interface";
+import { AppStoreState } from "src/app/shared/models/app-state.interface";
 import { signOut } from "../../store/login/login.action";
 
 @Component({
@@ -9,7 +9,7 @@ import { signOut } from "../../store/login/login.action";
   styleUrls: ["./menu.component.scss"],
 })
 export class MenuPageComponent implements OnInit {
-  constructor(private _store: Store<AppState>) {}
+  constructor(private _store: Store<AppStoreState>) {}
 
   ngOnInit() {}
 

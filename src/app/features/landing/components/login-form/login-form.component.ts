@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
-import { AppState } from "src/app/shared/models/app-state.interface";
+import { AppStoreState } from "src/app/shared/models/app-state.interface";
 import {
   SELECT_IS_LOADING,
   SELECT_LOGIN_ERROR,
@@ -24,7 +24,7 @@ export class LoginFormComponent implements OnInit {
 
   @Output("onSubmit") submit = new EventEmitter();
 
-  constructor(private fb: FormBuilder, private _store: Store<AppState>) {
+  constructor(private fb: FormBuilder, private _store: Store<AppStoreState>) {
     this.loading = false;
     this.form = fb.group(
       {

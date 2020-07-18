@@ -17,7 +17,7 @@ export class AcceptanceDataThirdFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
-      color: [[], [Validators.required]],
+      color: ["", [Validators.required]],
       textura: ["", [Validators.required]],
     });
   }

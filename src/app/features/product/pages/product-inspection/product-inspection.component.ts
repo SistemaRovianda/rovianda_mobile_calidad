@@ -3,11 +3,15 @@ import { Observable, BehaviorSubject } from "rxjs";
 import * as fromStepperActions from "../../../../shared/store/stepper/stepper.actions";
 import * as fromStepperSelect from "../../../../shared/store/stepper/stepper.selector";
 import { Store } from "@ngrx/store";
-import { AppState } from "src/app/shared/models/app-state.interface";
+import { AppStoreState } from "src/app/shared/models/app-state.interface";
 import { AcceptanceDataFormComponent } from "../../components/acceptance-data-form/acceptance-data-form.component";
 import { AcceptanceDataSecondFormComponent } from "../../components/acceptance-data-second-form/acceptance-data-second-form.component";
 import { AcceptanceDataThirdFormComponent } from "../../components/acceptance-data-third-form/acceptance-data-third-form.component";
 import { Router } from "@angular/router";
+
+import * as fromActionsProduct from "../../../product/store/product-inspection/product-inspection.actions";
+import * as fromCatalogLots from "../../../product/store/catalog-lots/catalog-lots.selector";
+import { lotResponse } from "src/app/shared/models/product-inspection.interface";
 
 @Component({
   selector: "app-product-inspection",
@@ -46,7 +50,17 @@ export class ProductInspectionComponent implements OnInit {
 
   index$: BehaviorSubject<number> = new BehaviorSubject(0);
 
-  constructor(private store: Store<AppState>, private route: Router) {}
+  apareanceFirstForm: any;
+
+  apareanceSecondForm: any;
+
+  apareanceThirdForm: any;
+
+  lots$: Observable<lotResponse[]> = this.store.select(
+    fromCatalogLots.fetchAllLots
+  );
+
+  constructor(private store: Store<AppStoreState>, private route: Router) {}
 
   ngOnInit() {
     this.store.dispatch(fromStepperActions.stepperInit({ steps: this.steps }));
@@ -58,8 +72,8 @@ export class ProductInspectionComponent implements OnInit {
   }
 
   onSubmit(payload) {
-    //   this.generalData = payload;
-    console.log(payload);
+    this.apareanceFirstForm = payload;
+
     this.index$.next(1);
     setTimeout(() => {
       this.secondForm.form.valueChanges.subscribe(() => {
@@ -69,9 +83,7 @@ export class ProductInspectionComponent implements OnInit {
   }
 
   onSecondSubmit(payload) {
-    // this.revisionData = payload;
-
-    console.log(payload);
+    this.apareanceSecondForm = payload;
     this.index$.next(2);
     setTimeout(() => {
       this.thirdForm.form.valueChanges.subscribe(() => {
@@ -81,7 +93,7 @@ export class ProductInspectionComponent implements OnInit {
   }
 
   onThirdSubmit(payload) {
-    // this.revisionData = payload;
+    this.apareanceThirdForm = payload;
     console.log(payload);
   }
 
@@ -107,17 +119,31 @@ export class ProductInspectionComponent implements OnInit {
 
   addInspeccion() {
     this.thirdForm.onSubmit();
-
-    // this.store.dispatch(fromActionsProduct.newProduct({ product: product }));
   }
 
   position(i: number) {
-    console.log(i);
-
     this.index$.next(i);
   }
 
   onBack(evt) {
     this.route.navigateByUrl("/menu");
+  }
+
+  onSaveInspection() {
+    this.thirdForm.onSubmit();
+
+    const { ...firstForm } = this.apareanceFirstForm;
+    const { ...secondForm } = this.apareanceSecondForm;
+    const { ...thirdForm } = this.apareanceThirdForm;
+
+    const form = {
+      ...firstForm,
+      validations: {
+        ...secondForm,
+        ...thirdForm,
+      },
+    };
+
+    this.store.dispatch(fromActionsProduct.newProduct({ product: form }));
   }
 }

@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { Store } from "@ngrx/store";
 import * as fromStepperActions from "../../../shared/store/stepper/stepper.actions";
 import { SELECT_STEPS } from "../../store/stepper/stepper.selector";
-import { AppState } from "../../models/app-state.interface";
+import { AppStoreState } from "../../models/app-state.interface";
 
 export interface StepperInterface {
   value: boolean;
@@ -17,7 +17,7 @@ export class StepperComponent implements OnInit {
   steppers: StepperInterface[] = [];
   @Output() index = new EventEmitter();
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppStoreState>) {}
 
   ngOnInit() {
     this.store.select(SELECT_STEPS).subscribe((tempSteps) => {

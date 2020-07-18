@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ModalController } from "@ionic/angular";
 import { Store } from "@ngrx/store";
-import { AppState } from "src/app/shared/models/app-state.interface";
+import { AppStoreState } from "src/app/shared/models/app-state.interface";
 import { CreateUserFormComponent } from "../../components/create-user-form/create-user-form.component";
 import { ConfirmAddUserComponent } from "../../dialogs/confirm-add-user/confirm-add-user.component";
 import { ConfirmReportComponent } from "../../dialogs/confirm-report/confirm-report.component";
@@ -23,7 +23,7 @@ export class CreateUserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private _store: Store<AppState>,
+    private _store: Store<AppStoreState>,
     private _modalCtrl: ModalController
   ) {
     this.path = `/product/${this.route.snapshot.paramMap.get("id")}/revisions`;

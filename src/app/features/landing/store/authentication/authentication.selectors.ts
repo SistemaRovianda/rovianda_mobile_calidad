@@ -1,7 +1,7 @@
-import { AppState } from "src/app/shared/models/app-state.interface";
+import { AppStoreState } from "src/app/shared/models/app-state.interface";
 import { createSelector } from "@ngrx/store";
 
-const AUTHENTICATION_STATE = (state: AppState) => state.auth;
+const AUTHENTICATION_STATE = (state: AppStoreState) => state.auth;
 
 export const SELECT_USER_TOKEN = createSelector(
   AUTHENTICATION_STATE,

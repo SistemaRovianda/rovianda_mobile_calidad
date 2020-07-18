@@ -1,0 +1,35 @@
+<ion-content>
+  <div class="content">
+    <div class="ion-text-center">
+      <ion-label
+        [class.isSuccess]="title != 'Error'"
+        [class.isError]="title == 'Error'"
+      >
+        ¡{{ title }}!
+      </ion-label>
+    </div>
+    <div class="ion-text-center">
+      <ion-label class="body">{{ message }}</ion-label>
+    </div>
+
+    <div class="ion-text-center buttons">
+      <ion-button
+        *ngIf="title == 'Error'"
+        class="btn"
+        style="--background: #e1bc5c;"
+        size="short"
+        (click)="cancel()"
+        >Aceptar</ion-button
+      >
+
+      <ion-button
+        *ngIf="title != 'Error'"
+        class="btn"
+        style="--background: #e1bc5c;"
+        size="short"
+        (click)="save()"
+        >Aceptar</ion-button
+      >
+    </div>
+  </div>
+</ion-content>
