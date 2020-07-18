@@ -41,10 +41,6 @@ export class CreateUserComponent implements OnInit {
     this.usersForm.onSubmit();
   }
 
-  onBack() {
-    this.router.navigate([`product/inspection`]);
-  }
-
   async confirmAddUsers(users) {
     const modal = await this._modalCtrl.create({
       component: ConfirmAddUserComponent,
@@ -75,6 +71,6 @@ export class CreateUserComponent implements OnInit {
   }
 
   onBackPage(evt) {
-    this.router.navigate([`/menu`]);
+    this.router.navigate([`/product/inspection`]);
   }
 }

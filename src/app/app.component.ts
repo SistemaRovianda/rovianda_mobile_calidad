@@ -43,7 +43,7 @@ export class AppComponent {
           .subscribe((res) => {
             if (res) {
               console.log("product/list");
-              this._router.navigate(["menu"]);
+              this._router.navigate(["user", "create-user"]);
             } else {
               console.log("login");
               this._router.navigate(["login"]);
