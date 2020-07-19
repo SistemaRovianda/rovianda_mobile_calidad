@@ -1,30 +1,32 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <ion-grid fixed>
-    <ion-row class="ion-justify-content-around" size="12">
-      <ion-col size="5">
+    <ion-row size="12">
+      <ion-col>
         <ion-row class="title">Control Empaque</ion-row>
         <ion-row class="title-ligth">Sin daños, limpio</ion-row>
       </ion-col>
 
-      <ion-list>
-        <ion-radio-group formControlName="packagingControl">
-          <ion-row>
-            <ion-item>
-              <ion-label>Aceptado</ion-label>
-              <ion-radio slot="start" value="true"></ion-radio>
-            </ion-item>
+      <ion-row>
+        <ion-list>
+          <ion-radio-group formControlName="packagingControl">
+            <ion-row>
+              <ion-item>
+                <ion-label>Aceptado</ion-label>
+                <ion-radio slot="start" value="true"></ion-radio>
+              </ion-item>
 
-            <ion-item>
-              <ion-label>Rechazado</ion-label>
-              <ion-radio slot="start" value="false"></ion-radio>
-            </ion-item>
-          </ion-row>
-        </ion-radio-group>
-      </ion-list>
+              <ion-item>
+                <ion-label>Rechazado</ion-label>
+                <ion-radio slot="start" value="false"></ion-radio>
+              </ion-item>
+            </ion-row>
+          </ion-radio-group>
+        </ion-list>
+      </ion-row>
     </ion-row>
 
-    <ion-row class="ion-justify-content-around" size="12">
-      <ion-col size="5">
+    <ion-row size="12">
+      <ion-col>
         <ion-row class="title">Materia extraña</ion-row>
         <ion-row class="title-ligth">Ausente</ion-row>
       </ion-col>
@@ -46,8 +48,8 @@
       </ion-list>
     </ion-row>
 
-    <ion-row class="ion-justify-content-around" size="12">
-      <ion-col size="5">
+    <ion-row size="12">
+      <ion-col>
         <ion-row class="title">Transporte</ion-row>
         <ion-row class="title-ligth">Limpio</ion-row>
       </ion-col>
@@ -68,8 +70,8 @@
       </ion-list>
     </ion-row>
 
-    <ion-row class="ion-justify-content-around" size="12">
-      <ion-col size="5">
+    <ion-row size="12">
+      <ion-col>
         <ion-row class="title">Peso por pieza</ion-row>
         <ion-row class="title-ligth">Según en empaque</ion-row>
       </ion-col>
@@ -91,8 +93,8 @@
       </ion-list>
     </ion-row>
 
-    <ion-row class="ion-justify-content-around" size="12">
-      <ion-col size="5">
+    <ion-row size="12">
+      <ion-col>
         <ion-row class="title">Temperatura</ion-row>
         <ion-row class="title-ligth">Máximo 4º C</ion-row>
       </ion-col>
@@ -114,8 +116,8 @@
       </ion-list>
     </ion-row>
 
-    <ion-row class="ion-justify-content-around" size="12">
-      <ion-col size="5">
+    <ion-row size="12">
+      <ion-col>
         <ion-row class="title">Olor</ion-row>
         <ion-row class="title-ligth">Característico</ion-row>
       </ion-col>

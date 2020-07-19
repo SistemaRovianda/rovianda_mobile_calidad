@@ -11,7 +11,7 @@
             <ion-select
               placeholder="Ingresa lote"
               style="--placeholder-color: black; --placeholder-opacity: 0.9;"
-              formControlName="newLote"
+              formControlName="lotId"
               interface="action-sheet"
               (ionBlur)="change()"
               [disabled]="disabled(lots)"
@@ -27,13 +27,13 @@
         <div class="error">
           <ion-label
             *ngIf="
-              form.hasError('required', 'newLote') &&
-              (form.controls.newLote.touched || form.controls.newLote.dirty)
+              form.hasError('required', 'lotId') &&
+              (form.controls.lotId.touched || form.controls.lotId.dirty)
             "
           >
             Este campo es requerido.
           </ion-label>
-          <ion-label *ngIf="form.hasError('whitespace', 'newLote')">
+          <ion-label *ngIf="form.hasError('whitespace', 'lotId')">
             No has introducido caracteres.
           </ion-label>
         </div>
@@ -47,7 +47,7 @@
 
             <ion-select
               placeholder="Seleccione un producto"
-              formControlName="product"
+              formControlName="productId"
               interface="action-sheet"
               (ionChange)="onChangeProduct($event)"
               [disabled]="disabled(filterProducts)"
@@ -63,13 +63,13 @@
         <div class="error">
           <ion-label
             *ngIf="
-              form.hasError('required', 'product') &&
-              (form.controls.product.touched || form.controls.product.dirty)
+              form.hasError('required', 'productId') &&
+              (form.controls.productId.touched || form.controls.productId.dirty)
             "
           >
             Este campo es requerido.
           </ion-label>
-          <ion-label *ngIf="form.hasError('whitespace', 'product')">
+          <ion-label *ngIf="form.hasError('whitespace', 'productId')">
             No has introducido caracteres.
           </ion-label>
         </div>
@@ -83,20 +83,24 @@
             <ion-label class="ion-label" position="floating"
               >Fecha de ingreso*</ion-label
             >
-            <ion-input placeholder="Ingresa fecha" formControlName="date">
+            <ion-input
+              placeholder="Ingresa fecha"
+              formControlName="expirationDate"
+            >
             </ion-input>
           </ion-item>
         </ion-row>
         <div class="error">
           <ion-label
             *ngIf="
-              form.hasError('required', 'date') &&
-              (form.controls.date.touched || form.controls.date.dirty)
+              form.hasError('required', 'expirationDate') &&
+              (form.controls.expirationDate.touched ||
+                form.controls.expirationDate.dirty)
             "
           >
             Este campo es requerido.
           </ion-label>
-          <ion-label *ngIf="form.hasError('whitespace', 'date')">
+          <ion-label *ngIf="form.hasError('whitespace', 'expirationDate')">
             No has introducido caracteres.
           </ion-label>
         </div>
@@ -108,20 +112,24 @@
             <ion-label class="ion-label" position="floating"
               >No. Paquetes/Piezas*</ion-label
             >
-            <ion-input placeholder="Ingresa número" formControlName="piece">
+            <ion-input
+              placeholder="Ingresa número"
+              formControlName="numberpackages"
+            >
             </ion-input>
           </ion-item>
         </ion-row>
         <div class="error">
           <ion-label
             *ngIf="
-              form.hasError('required', 'piece') &&
-              (form.controls.piece.touched || form.controls.piece.dirty)
+              form.hasError('required', 'numberpackages') &&
+              (form.controls.numberpackages.touched ||
+                form.controls.numberpackages.dirty)
             "
           >
             Este campo es requerido.
           </ion-label>
-          <ion-label *ngIf="form.hasError('whitespace', 'piece')">
+          <ion-label *ngIf="form.hasError('whitespace', 'numberpackages')">
             No has introducido caracteres.
           </ion-label>
         </div>
