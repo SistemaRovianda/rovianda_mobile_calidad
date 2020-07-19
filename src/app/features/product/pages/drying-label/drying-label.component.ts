@@ -3,6 +3,8 @@ import { Store } from "@ngrx/store";
 import { AppStoreState } from "src/app/shared/models/app-state.interface";
 import { signOut } from "../../../../features/landing/store/login/login.action";
 import { ModalController } from "@ionic/angular";
+
+import * as fromActions from "../../store/drying-label/drying-label.actions";
 import { GenerateReportComponent } from "../../dialogs/generate-report/generate-report.component";
 
 @Component({
@@ -22,18 +24,7 @@ export class DryingLabelComponent implements OnInit {
     this._store.dispatch(signOut());
   }
 
-  onSubmit() {
-    this.openModal(1);
-  }
-
-  async openModal(exitLot: any) {
-    const modal = await this.modalController.create({
-      component: GenerateReportComponent,
-      cssClass: "modal-size",
-      componentProps: {
-        exitLot: exitLot,
-      },
-    });
-    return await modal.present();
+  onSubmit(payload) {
+    this._store.dispatch(fromActions.newProduct({ product: payload }));
   }
 }

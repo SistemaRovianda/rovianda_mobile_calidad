@@ -24,8 +24,8 @@ export class AcceptanceDataFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
-      product: ["", [Validators.required, whitespaceValidator]],
-      newLote: ["", [Validators.required, whitespaceValidator]],
+      product: ["", [whitespaceValidator]],
+      newLote: ["", [whitespaceValidator]],
       date: ["", [Validators.required, whitespaceValidator]],
       piece: ["", [Validators.required, whitespaceValidator]],
       observations: [null],

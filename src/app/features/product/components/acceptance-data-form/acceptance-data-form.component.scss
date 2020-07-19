@@ -81,29 +81,6 @@ form {
       font-size: var(--fs-text-error-xl);
     }
   }
-
-  ion-button {
-    height: 10%;
-    width: 100%;
-    text-transform: none;
-    font-weight: 20;
-    margin: 0;
-    margin-top: 18%;
-    border-radius: 5px;
-    --ion-color-primary: var(--ion-color-primary);
-
-    @include breakpoint-size(ms-extra-small) {
-      font-size: var(--fs-text-xsm);
-    }
-
-    @include breakpoint-size(ms-small) {
-      font-size: var(--fs-text-sm);
-    }
-
-    @include breakpoint-size(ms-extra-large) {
-      font-size: var(--fs-text-xl);
-    }
-  }
 }
 
 ::ng-deep ion-action-sheet {

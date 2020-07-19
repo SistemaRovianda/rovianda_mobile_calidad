@@ -13,13 +13,10 @@ export class DryingLabelFormComponent implements OnInit {
   form: FormGroup;
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
-      product: ["", [Validators.required, whitespaceValidator]],
-      newLote: ["", [Validators.required, whitespaceValidator]],
-      dateStart: [
-        moment().format("MM/DD/YYYY"),
-        [Validators.required, whitespaceValidator],
-      ],
-      dateEnd: ["", [Validators.required, whitespaceValidator]],
+      productId: ["", [Validators.required, whitespaceValidator]],
+      lotId: ["", [Validators.required, whitespaceValidator]],
+      dateEntrance: [moment().format("MM/DD/YYYY"), [Validators.required]],
+      dateOutput: ["", [Validators.required]],
     });
   }
 
@@ -30,7 +27,7 @@ export class DryingLabelFormComponent implements OnInit {
   }
 
   get minEndDate() {
-    const start = this.form.get("dateStart").value;
+    const start = this.form.get("dateEntrance").value;
     const end = moment(start).add(2, "days").format("YYYY-MM-DD");
 
     return end;

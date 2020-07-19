@@ -6,24 +6,21 @@
         <ion-row class="title-ligth">Característico</ion-row>
       </ion-col>
 
-      <ion-col
-        size="3"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Aceptado</span>
-          <ion-checkbox formControlName="color"></ion-checkbox>
-        </ion-row>
-      </ion-col>
-      <ion-col
-        size="4"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Rechazado</span>
-          <ion-checkbox formControlName="color"></ion-checkbox>
-        </ion-row>
-      </ion-col>
+      <ion-list>
+        <ion-radio-group formControlName="colour">
+          <ion-row>
+            <ion-item>
+              <ion-label>Aceptado</ion-label>
+              <ion-radio slot="start" value="true"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Rechazado</ion-label>
+              <ion-radio slot="start" value="false"></ion-radio>
+            </ion-item>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
     </ion-row>
 
     <ion-row class="ion-justify-content-around" size="12">
@@ -32,24 +29,21 @@
         <ion-row class="title-ligth">Característico</ion-row>
       </ion-col>
 
-      <ion-col
-        size="3"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Aceptado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
-      <ion-col
-        size="4"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Rechazado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
+      <ion-list>
+        <ion-radio-group formControlName="texture">
+          <ion-row>
+            <ion-item>
+              <ion-label>Aceptado</ion-label>
+              <ion-radio slot="start" value="true"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Rechazado</ion-label>
+              <ion-radio slot="start" value="false"></ion-radio>
+            </ion-item>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
     </ion-row>
   </ion-grid>
 </form>

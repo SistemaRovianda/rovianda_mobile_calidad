@@ -1,20 +1,22 @@
 import { createAction, props } from "@ngrx/store";
-import { ProductInspection } from "src/app/shared/models/product-inspection.interface";
 
-const ADD_PRODUCTS = "['PRODUCTS'] Add Products";
+const ADD_PRODUCT = "['DRYING'] Add Drying";
 
-const ADD_PRODUCTS_SUCCESS = "['PRODUCTS'] Add Products Success";
+const ADD_PRODUCT_SUCCESS = "['DRYING'] Add Drying Success";
 
-const ADD_PRODUCTS_ERROR = "['PRODUCTS'] Add Products Error";
+const ADD_PRODUCT_ERROR = "['DRYING'] Add Drying Error";
 
 export const newProduct = createAction(
-  ADD_PRODUCTS,
-  props<{ product: ProductInspection }>()
+  ADD_PRODUCT,
+  props<{ product: DryingInterface }>()
 );
 
-export const newProductSuccess = createAction(ADD_PRODUCTS_SUCCESS);
+export const newProductSuccess = createAction(
+  ADD_PRODUCT_SUCCESS,
+  props<{ id: number }>()
+);
 
 export const newProductError = createAction(
-  ADD_PRODUCTS_ERROR,
+  ADD_PRODUCT_ERROR,
   props<{ error: string }>()
 );

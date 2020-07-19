@@ -17,6 +17,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { reducers, metaReducers } from "./shared/store/reducer/index.reducer";
 
 import { IonicStorageModule } from "@ionic/storage";
+import { MessageDialogModule } from "./shared/components/message-dialog/message-dialog.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +40,7 @@ import { IonicStorageModule } from "@ionic/storage";
     }),
     HttpClientModule,
     AppProvidersModule,
+    MessageDialogModule,
   ],
   providers: [
     StatusBar,

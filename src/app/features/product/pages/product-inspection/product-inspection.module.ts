@@ -8,6 +8,7 @@ import { ProductInspectionComponent } from "./product-inspection.component";
 import { AcceptanceDataFormModule } from "../../components/acceptance-data-form/acceptance-data-form.module";
 import { AcceptanceDataThirdFormModule } from "../../components/acceptance-data-third-form/acceptance-data-third-form.module";
 import { AcceptanceDataSecondFormModule } from "../../components/acceptance-data-second-form/acceptance-data-second-form.module";
+import { MessageDialogModule } from "src/app/shared/components/message-dialog/message-dialog.module";
 
 const COMMON_IMPORTS = [
   CommonModule,
@@ -18,6 +19,7 @@ const COMMON_IMPORTS = [
   AcceptanceDataFormModule,
   AcceptanceDataSecondFormModule,
   AcceptanceDataThirdFormModule,
+  MessageDialogModule,
 ];
 
 const COMMON_DECLARTIONS = [ProductInspectionComponent];

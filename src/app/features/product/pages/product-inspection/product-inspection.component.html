@@ -55,13 +55,7 @@
         *ngIf="!(next$ | async) || ((index$ | async) == 0 && (next$ | async))"
         size="12"
       >
-        <ion-button color="secondary" size="medium" routerLink="/menu">
-          <ion-grid>
-            <ion-col>Regresar</ion-col>
-          </ion-grid>
-        </ion-button>
         <ion-button
-          size="medium"
           color="primary"
           (click)="validateForm()"
           [disabled]="disabledButton"
@@ -75,14 +69,7 @@
         class="ion-justify-content-center"
         *ngIf="(next$ | async) && (index$ | async) == 1"
       >
-        <ion-button color="secondary" size="medium" (click)="position(0)">
-          <ion-grid>
-            <ion-col>Regresar</ion-col>
-          </ion-grid>
-        </ion-button>
-
         <ion-button
-          size="medium"
           color="primary"
           (click)="validateSecondForm()"
           [disabled]="disabledButton"
@@ -99,21 +86,15 @@
       >
         <ion-button
           color="secondary"
-          size="medium"
           [disabled]="disabledButton"
-          (click)="position(1)"
+          (click)="onSaveInspection()"
         >
           <ion-grid>
-            <ion-col *ngIf="!(loading$ | async)" size="12">Regresar</ion-col>
+            <ion-col *ngIf="!(loading$ | async)" size="12">Guardar</ion-col>
             <ion-spinner *ngIf="loading$ | async" name="crescent"></ion-spinner>
           </ion-grid>
         </ion-button>
-        <ion-button
-          color="primary"
-          size="medium"
-          (click)="onSaveInspection()"
-          routerLink="/user/create-user"
-        >
+        <ion-button color="primary" routerLink="/user/create-user">
           <ion-grid>
             <ion-col>Usuarios</ion-col>
           </ion-grid>

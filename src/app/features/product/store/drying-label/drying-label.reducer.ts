@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from "@ngrx/store";
 
-import * as fromActions from "./product-inspection.actions";
+import * as fromActions from "./drying-label.actions";
 import { newProductState } from "src/app/shared/models/app-state.interface";
 
 const initialState: newProductState = {
@@ -17,10 +17,9 @@ const _productInspectionReducer = createReducer<newProductState>(
     loading: true,
   })),
 
-  on(fromActions.newProductSuccess, (state, { id }) => ({
+  on(fromActions.newProductSuccess, (state) => ({
     ...state,
     loading: false,
-    product: id,
   })),
 
   on(fromActions.newProductError, (state, { error }) => ({
@@ -30,9 +29,6 @@ const _productInspectionReducer = createReducer<newProductState>(
   }))
 );
 
-export function ProductInspectionReducer(
-  state: newProductState,
-  action: Action
-) {
+export function DryingLabelReducer(state: newProductState, action: Action) {
   return _productInspectionReducer(state, action);
 }

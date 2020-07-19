@@ -4,16 +4,16 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 import { catchError, exhaustMap, tap } from "rxjs/operators";
 import { MessageDialogComponent } from "src/app/shared/components/message-dialog/message-dialog.component";
-import { ProductInspectionService } from "src/app/shared/services/product-inspection.service";
-import * as fromActions from "./product-inspection.actions";
+import { DryingService } from "src/app/shared/services/drying.service";
+import * as fromActions from "./drying-label.actions";
 
 @Injectable({
   providedIn: "root",
 })
-export class ProductInspectionEffects {
+export class DryingLabelEffects {
   constructor(
     private actions$: Actions,
-    private productsService: ProductInspectionService,
+    private dryingService: DryingService,
     public modalController: ModalController
   ) {}
 
@@ -21,7 +21,7 @@ export class ProductInspectionEffects {
     this.actions$.pipe(
       ofType(fromActions.newProduct),
       exhaustMap((action) =>
-        this.productsService.newProductInspection(action.product).pipe(
+        this.dryingService.newDrying(action.product).pipe(
           tap((id) => {
             fromActions.newProductSuccess(id);
             this.openModal("Exitó", "¡Se ha guardado con exitó!");

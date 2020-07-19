@@ -14,6 +14,8 @@ export interface AppStoreState {
   usersChecked: UsersCheckedState;
   catalogProducts: newState;
   catalogLots: stateLots;
+  productInspection: newProductState;
+  dryingLabel: newProductState;
 }
 
 export interface newProductState {

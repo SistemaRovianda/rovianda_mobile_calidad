@@ -6,24 +6,21 @@
         <ion-row class="title-ligth">Sin daños, limpio</ion-row>
       </ion-col>
 
-      <ion-col
-        size="3"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Aceptado</span>
-          <ion-checkbox formControlName="control"></ion-checkbox>
-        </ion-row>
-      </ion-col>
-      <ion-col
-        size="4"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Rechazado</span>
-          <ion-checkbox formControlName="control"></ion-checkbox>
-        </ion-row>
-      </ion-col>
+      <ion-list>
+        <ion-radio-group formControlName="packagingControl">
+          <ion-row>
+            <ion-item>
+              <ion-label>Aceptado</ion-label>
+              <ion-radio slot="start" value="true"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Rechazado</ion-label>
+              <ion-radio slot="start" value="false"></ion-radio>
+            </ion-item>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
     </ion-row>
 
     <ion-row class="ion-justify-content-around" size="12">
@@ -32,24 +29,21 @@
         <ion-row class="title-ligth">Ausente</ion-row>
       </ion-col>
 
-      <ion-col
-        size="3"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Aceptado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
-      <ion-col
-        size="4"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Rechazado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
+      <ion-list>
+        <ion-radio-group formControlName="foreignMatter">
+          <ion-row>
+            <ion-item>
+              <ion-label>Aceptado</ion-label>
+              <ion-radio slot="start" value="true"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Rechazado</ion-label>
+              <ion-radio slot="start" value="false"></ion-radio>
+            </ion-item>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
     </ion-row>
 
     <ion-row class="ion-justify-content-around" size="12">
@@ -57,25 +51,21 @@
         <ion-row class="title">Transporte</ion-row>
         <ion-row class="title-ligth">Limpio</ion-row>
       </ion-col>
+      <ion-list>
+        <ion-radio-group formControlName="transport">
+          <ion-row>
+            <ion-item>
+              <ion-label>Aceptado</ion-label>
+              <ion-radio slot="start" value="true"></ion-radio>
+            </ion-item>
 
-      <ion-col
-        size="3"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Aceptado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
-      <ion-col
-        size="4"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Rechazado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
+            <ion-item>
+              <ion-label>Rechazado</ion-label>
+              <ion-radio slot="start" value="false"></ion-radio>
+            </ion-item>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
     </ion-row>
 
     <ion-row class="ion-justify-content-around" size="12">
@@ -84,24 +74,21 @@
         <ion-row class="title-ligth">Según en empaque</ion-row>
       </ion-col>
 
-      <ion-col
-        size="3"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Aceptado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
-      <ion-col
-        size="4"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Rechazado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
+      <ion-list>
+        <ion-radio-group formControlName="weightPerPiece">
+          <ion-row>
+            <ion-item>
+              <ion-label>Aceptado</ion-label>
+              <ion-radio slot="start" value="true"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Rechazado</ion-label>
+              <ion-radio slot="start" value="false"></ion-radio>
+            </ion-item>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
     </ion-row>
 
     <ion-row class="ion-justify-content-around" size="12">
@@ -110,24 +97,21 @@
         <ion-row class="title-ligth">Máximo 4º C</ion-row>
       </ion-col>
 
-      <ion-col
-        size="3"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Aceptado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
-      <ion-col
-        size="4"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Rechazado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
+      <ion-list>
+        <ion-radio-group formControlName="temperature">
+          <ion-row>
+            <ion-item>
+              <ion-label>Aceptado</ion-label>
+              <ion-radio slot="start" value="true"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Rechazado</ion-label>
+              <ion-radio slot="start" value="false"></ion-radio>
+            </ion-item>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
     </ion-row>
 
     <ion-row class="ion-justify-content-around" size="12">
@@ -136,24 +120,21 @@
         <ion-row class="title-ligth">Característico</ion-row>
       </ion-col>
 
-      <ion-col
-        size="3"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Aceptado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
-      <ion-col
-        size="4"
-        class="ion-justify-content-center ion-align-self-center ion-text-start"
-      >
-        <ion-row class="form-input ion-no-padding">
-          <span class="checkbox">Rechazado</span>
-          <ion-checkbox></ion-checkbox>
-        </ion-row>
-      </ion-col>
+      <ion-list>
+        <ion-radio-group formControlName="odor">
+          <ion-row>
+            <ion-item>
+              <ion-label>Aceptado</ion-label>
+              <ion-radio slot="start" value="true"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Rechazado</ion-label>
+              <ion-radio slot="start" value="false"></ion-radio>
+            </ion-item>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
     </ion-row>
   </ion-grid>
 </form>

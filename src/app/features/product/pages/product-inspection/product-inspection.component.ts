@@ -84,6 +84,7 @@ export class ProductInspectionComponent implements OnInit {
     this.apareanceFirstForm = payload;
 
     this.index$.next(1);
+    this.disabledButton = true;
     setTimeout(() => {
       this.secondForm.form.valueChanges.subscribe(() => {
         this.disabledButton = this.secondForm.form.invalid;
@@ -94,6 +95,7 @@ export class ProductInspectionComponent implements OnInit {
   onSecondSubmit(payload) {
     this.apareanceSecondForm = payload;
     this.index$.next(2);
+    this.disabledButton = true;
     setTimeout(() => {
       this.thirdForm.form.valueChanges.subscribe(() => {
         this.disabledButton = this.thirdForm.form.invalid;
@@ -103,7 +105,6 @@ export class ProductInspectionComponent implements OnInit {
 
   onThirdSubmit(payload) {
     this.apareanceThirdForm = payload;
-    console.log(payload);
   }
 
   validateForm() {
@@ -124,10 +125,6 @@ export class ProductInspectionComponent implements OnInit {
       })
     );
     this.secondForm.onSubmit();
-  }
-
-  addInspeccion() {
-    this.thirdForm.onSubmit();
   }
 
   position(i: number) {
