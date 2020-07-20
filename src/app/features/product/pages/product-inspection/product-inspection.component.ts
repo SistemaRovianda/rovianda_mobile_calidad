@@ -14,6 +14,7 @@ import * as fromCatalogLots from "../../../product/store/catalog-lots/catalog-lo
 import { lotResponse } from "src/app/shared/models/product-inspection.interface";
 
 import * as fromCatalogLotsActions from "../../../product/store/catalog-lots/catalog-lots.actions";
+import { idProductInspectorSuccess } from "../../store/product-inspection/product-inspection.selectors";
 
 @Component({
   selector: "app-product-inspection",
@@ -58,11 +59,15 @@ export class ProductInspectionComponent implements OnInit {
 
   apareanceThirdForm: any;
 
+  activeUsersBtn: boolean;
+
   lots$: Observable<lotResponse[]> = this.store.select(
     fromCatalogLots.fetchAllLots
   );
 
-  constructor(private store: Store<AppStoreState>, private route: Router) {}
+  constructor(private store: Store<AppStoreState>, private route: Router) {
+    this.activeUsersBtn = false;
+  }
 
   ngOnInit() {
     this.store.dispatch(fromStepperActions.stepperInit({ steps: this.steps }));
@@ -71,6 +76,10 @@ export class ProductInspectionComponent implements OnInit {
         this.disabledButton = this.firstForm.form.invalid;
       });
     }, 500);
+
+    this.store.select(idProductInspectorSuccess).subscribe((id) => {
+      this.activeUsersBtn = id != null ? true : false;
+    });
 
     this.store.dispatch(
       fromCatalogLotsActions.fetchAllLots({

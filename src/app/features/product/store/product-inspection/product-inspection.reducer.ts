@@ -5,6 +5,7 @@ import { newProductState } from "src/app/shared/models/app-state.interface";
 
 const initialState: newProductState = {
   product: null,
+  idProductInspectionSucess: null,
   error: null,
   loading: false,
 };
@@ -20,7 +21,7 @@ const _productInspectionReducer = createReducer<newProductState>(
   on(fromActions.newProductSuccess, (state, { id }) => ({
     ...state,
     loading: false,
-    product: id,
+    idProductInspectionSucess: id.toString(),
   })),
 
   on(fromActions.newProductError, (state, { error }) => ({

@@ -20,6 +20,7 @@ export interface AppStoreState {
 
 export interface newProductState {
   product: any;
+  idProductInspectionSucess?: string;
   error: string;
   loading: boolean;
 }
