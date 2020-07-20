@@ -5,7 +5,7 @@ import { CreateUserModule } from "./pages/create-user/create-user.module";
 
 const routes: Routes = [
   {
-    path: "create-user",
+    path: ":id/create-user",
     component: CreateUserComponent,
   },
 ];

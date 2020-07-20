@@ -59,7 +59,7 @@
             <ion-spinner *ngIf="loading$ | async" name="crescent"></ion-spinner>
           </ion-grid>
         </ion-button>
-        <ion-button color="primary" routerLink="/user/create-user" [disabled]="activeUsersBtn">
+        <ion-button color="primary" (click)="addUsers()" [disabled]="activeUsersBtn">
           <ion-grid>
             <ion-col>Usuarios</ion-col>
           </ion-grid>

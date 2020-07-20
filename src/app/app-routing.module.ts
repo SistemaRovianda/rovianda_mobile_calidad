@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 import { IsAuthGuard } from "./shared/guards/is-auth.guard";
 import { AuthGuard } from "./shared/guards/auth.guard";
+import { UsersResolve } from "./shared/resolvers/users.resolver";
 
 const routes: Routes = [
   {
@@ -34,6 +35,9 @@ const routes: Routes = [
   },
   {
     path: "user",
+    resolve: {
+      users: UsersResolve,
+    },
     loadChildren: () =>
       import("./features/users/users.module").then((m) => m.UsersModule),
   },
@@ -43,7 +47,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  providers: [AuthGuard, IsAuthGuard],
+  providers: [AuthGuard, IsAuthGuard, UsersResolve],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

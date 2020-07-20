@@ -41,10 +41,6 @@ export class CreateUserComponent implements OnInit {
     this.usersForm.onSubmit();
   }
 
-  onBack() {
-    this.router.navigate([`product/inspection`]);
-  }
-
   async confirmAddUsers(users) {
     const modal = await this._modalCtrl.create({
       component: ConfirmAddUserComponent,
@@ -58,23 +54,7 @@ export class CreateUserComponent implements OnInit {
     return await modal.present();
   }
 
-  generateReportPDF() {
-    this.confirmReport();
-  }
-
-  async confirmReport() {
-    const modal = await this._modalCtrl.create({
-      component: ConfirmReportComponent,
-      cssClass: "modal-size",
-      componentProps: {
-        id: this.route.snapshot.paramMap.get("id"),
-      },
-    });
-
-    return await modal.present();
-  }
-
   onBackPage(evt) {
-    this.router.navigate([`/menu`]);
+    this.router.navigate([`/product/inspection`]);
   }
 }

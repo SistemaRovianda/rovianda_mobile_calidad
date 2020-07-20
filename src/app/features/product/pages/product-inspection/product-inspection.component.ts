@@ -61,6 +61,8 @@ export class ProductInspectionComponent implements OnInit {
 
   activeUsersBtn: boolean;
 
+  idProductSuccess: string;
+
   lots$: Observable<lotResponse[]> = this.store.select(
     fromCatalogLots.fetchAllLots
   );
@@ -78,6 +80,8 @@ export class ProductInspectionComponent implements OnInit {
     }, 500);
 
     this.store.select(idProductInspectorSuccess).subscribe((id) => {
+      console.info("id generado por back", id);
+      this.idProductSuccess = id;
       this.activeUsersBtn = id != null ? true : false;
     });
 
@@ -160,5 +164,10 @@ export class ProductInspectionComponent implements OnInit {
     };
 
     this.store.dispatch(fromActionsProduct.newProduct({ product: form }));
+  }
+
+  addUsers() {
+    console.log("Agregar usuarios para la inspeccion: ", this.idProductSuccess);
+    this.route.navigate([`/user/${this.idProductSuccess}/create-user`]);
   }
 }

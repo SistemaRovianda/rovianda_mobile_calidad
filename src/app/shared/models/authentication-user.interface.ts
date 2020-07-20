@@ -5,5 +5,6 @@ export interface AuthenticationUser {
   firstSurname?: string;
   lastSurname?: string;
   rol?: string;
+  job?: string;
   email?: string;
 }
