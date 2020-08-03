@@ -4,23 +4,20 @@
       <ion-col size="5">
         <ion-row>
           <ion-item class="form-input ion-no-padding">
-            <ion-label class="ion-label" position="floating"
-              >Producto*</ion-label
-            >
-            <ion-input
-              placeholder="Ingresa producto"
-              formControlName="productId"
-            >
-            </ion-input>
+            <ion-label class="ion-label" position="floating">Producto*</ion-label>
+            <!-- <ion-input placeholder="Ingresa producto" formControlName="productId">
+            </ion-input> -->
+            <ion-select interface="action-sheet" placeholder="Selecciona un producto" formControlName="productId">
+              <ion-select-option *ngFor="let pr of productsRovianda$ | async" [value]="pr.id">{{pr.name}}
+              </ion-select-option>
+            </ion-select>
           </ion-item>
         </ion-row>
         <div class="error">
-          <ion-label
-            *ngIf="
+          <ion-label *ngIf="
               form.hasError('required', 'productId') &&
               (form.controls.productId.touched || form.controls.productId.dirty)
-            "
-          >
+            ">
             Este campo es requerido.
           </ion-label>
           <ion-label *ngIf="form.hasError('whitespace', 'productId')">
@@ -37,12 +34,10 @@
           </ion-item>
         </ion-row>
         <div class="error">
-          <ion-label
-            *ngIf="
+          <ion-label *ngIf="
               form.hasError('required', 'lotId') &&
               (form.controls.lotId.touched || form.controls.lotId.dirty)
-            "
-          >
+            ">
             Este campo es requerido.
           </ion-label>
           <ion-label *ngIf="form.hasError('whitespace', 'lotId')">
@@ -56,24 +51,17 @@
       <ion-col size="5">
         <ion-row>
           <ion-item class="form-input ion-no-padding">
-            <ion-label class="ion-label" position="floating"
-              >Fecha de entrada*</ion-label
-            >
-            <ion-datetime
-              displayFormat="DD/MM/YYYY"
-              placeholder="Ingresa fecha"
-              formControlName="dateEntrance"
-            ></ion-datetime>
+            <ion-label class="ion-label" position="floating">Fecha de entrada*</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" placeholder="Ingresa fecha" formControlName="dateEntrance">
+            </ion-datetime>
           </ion-item>
         </ion-row>
         <div class="error">
-          <ion-label
-            *ngIf="
+          <ion-label *ngIf="
               form.hasError('required', 'date') &&
               (form.controls.dateEntrance.touched ||
                 form.controls.dateEntrance.dirty)
-            "
-          >
+            ">
             Este campo es requerido.
           </ion-label>
         </div>
@@ -82,26 +70,18 @@
       <ion-col size="5">
         <ion-row>
           <ion-item class="form-input ion-no-padding">
-            <ion-label class="ion-label" position="floating"
-              >Fecha salida*</ion-label
-            >
-            <ion-datetime
-              displayFormat="DD/MM/YYYY"
-              placeholder="Ingresa fecha"
-              formControlName="dateOutput"
-              [min]="minEndDate"
-            ></ion-datetime>
+            <ion-label class="ion-label" position="floating">Fecha salida*</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" placeholder="Ingresa fecha" formControlName="dateOutput"
+              [min]="minEndDate"></ion-datetime>
           </ion-item>
         </ion-row>
 
         <div class="error">
-          <ion-label
-            *ngIf="
+          <ion-label *ngIf="
               form.hasError('required', 'piece') &&
               (form.controls.dateOutput.touched ||
                 form.controls.dateOutput.dirty)
-            "
-          >
+            ">
             Este campo es requerido.
           </ion-label>
         </div>

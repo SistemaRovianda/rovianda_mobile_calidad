@@ -5,6 +5,7 @@ import { ProductInspectionModule } from "./pages/product-inspection/product-insp
 import { DryingLabelFormComponent } from "./components/drying-label-form/drying-label-form.component";
 import { DryingLabelComponent } from "./pages/drying-label/drying-label.component";
 import { DryingLabelModule } from "./pages/drying-label/drying-label.module";
+import { ProductsRoviandaResolver } from "src/app/shared/resolvers/products-rovianda.resolver";
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path: "drying-label",
+    resolve: {
+      productsRovianda: ProductsRoviandaResolver,
+    },
     component: DryingLabelComponent,
   },
 ];
@@ -24,5 +28,6 @@ const routes: Routes = [
     DryingLabelModule,
   ],
   exports: [RouterModule],
+  providers: [ProductsRoviandaResolver],
 })
 export class ProductsRoutingModule {}

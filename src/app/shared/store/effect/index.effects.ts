@@ -4,6 +4,7 @@ import { CatalogLotsEffects } from "src/app/features/product/store/catalog-lots/
 import { CatalogProductsEffects } from "src/app/features/product/store/catalog-products/catalog-products.effects";
 import { ProductInspectionEffects } from "src/app/features/product/store/product-inspection/product-inspection.effects";
 import { DryingLabelEffects } from "src/app/features/product/store/drying-label/drying-label.effects";
+import { ProductRoviandaEffects } from "src/app/features/product/store/products-rovianda/products-rovianda.effects";
 
 export const effects = [
   LoginEffects,
@@ -12,4 +13,5 @@ export const effects = [
   CatalogLotsEffects,
   ProductInspectionEffects,
   DryingLabelEffects,
+  ProductRoviandaEffects,
 ];

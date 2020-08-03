@@ -5,6 +5,7 @@ import { UsersState } from "src/app/features/users/store/users/users.reducer";
 import { UsersCheckedState } from "src/app/features/users/store/usersChecked/users-checked.reducer";
 import { newState } from "src/app/features/product/store/catalog-products/catalog-products.reducer";
 import { stateLots } from "src/app/features/product/store/catalog-lots/catalog-lots.reducer";
+import { ProductsRoviandaState } from "src/app/features/product/store/products-rovianda/products-rovianda.reducer";
 
 export interface AppStoreState {
   auth: AuthenticationUser;
@@ -16,6 +17,7 @@ export interface AppStoreState {
   catalogLots: stateLots;
   productInspection: newProductState;
   dryingLabel: newProductState;
+  productsRovianda: ProductsRoviandaState;
 }
 
 export interface newProductState {

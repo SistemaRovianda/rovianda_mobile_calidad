@@ -30,3 +30,8 @@ export interface lotResponse {
   loteId: string;
   products: ProductInterface[];
 }
+
+export interface ProductRovianda {
+  id: number;
+  name: string;
+}

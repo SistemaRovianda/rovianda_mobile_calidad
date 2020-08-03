@@ -9,6 +9,7 @@ import { usersCheckedReducer } from "src/app/features/users/store/usersChecked/u
 import { AppStoreState } from "../../models/app-state.interface";
 import { StepperInitialReducer } from "../stepper/stepper.reducer";
 import { DryingLabelReducer } from "src/app/features/product/store/drying-label/drying-label.reducer";
+import { productsRoviandaReducer } from "src/app/features/product/store/products-rovianda/products-rovianda.reducer";
 
 export const reducers: ActionReducerMap<AppStoreState> = {
   auth: authenticationReducer,
@@ -20,6 +21,7 @@ export const reducers: ActionReducerMap<AppStoreState> = {
   catalogLots: catalogLotsReducer,
   productInspection: ProductInspectionReducer,
   dryingLabel: DryingLabelReducer,
+  productsRovianda: productsRoviandaReducer,
 };
 
 export const metaReducers: MetaReducer<AppStoreState>[] = [];
