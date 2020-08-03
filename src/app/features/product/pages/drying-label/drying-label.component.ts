@@ -6,6 +6,7 @@ import { ModalController } from "@ionic/angular";
 
 import * as fromActions from "../../store/drying-label/drying-label.actions";
 import { GenerateReportComponent } from "../../dialogs/generate-report/generate-report.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-drying-label",
@@ -15,13 +16,14 @@ import { GenerateReportComponent } from "../../dialogs/generate-report/generate-
 export class DryingLabelComponent implements OnInit {
   constructor(
     private _store: Store<AppStoreState>,
+    private router: Router,
     public modalController: ModalController
   ) {}
 
   ngOnInit() {}
 
   onBack(evt) {
-    this._store.dispatch(signOut());
+    this.router.navigate(["/menu"]);
   }
 
   onSubmit(payload) {
