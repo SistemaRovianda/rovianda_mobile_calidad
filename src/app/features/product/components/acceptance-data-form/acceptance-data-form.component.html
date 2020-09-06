@@ -4,18 +4,10 @@
       <ion-col size="5">
         <ion-row>
           <ion-item class="form-input ion-no-padding">
-            <ion-label class="ion-label" position="floating"
-              >Lote y caducidad*</ion-label
-            >
+            <ion-label class="ion-label" position="floating">Lote y caducidad*</ion-label>
 
-            <ion-select
-              placeholder="Ingresa lote"
-              style="--placeholder-color: black; --placeholder-opacity: 0.9;"
-              formControlName="lotId"
-              interface="action-sheet"
-              (ionBlur)="change()"
-              [disabled]="disabled(lots)"
-            >
+            <ion-select placeholder="Ingresa lote" style="--placeholder-color: black; --placeholder-opacity: 0.9;"
+              (ionChange)="change($event)" formControlName="lotId" interface="action-sheet" [disabled]="disabled(lots)">
               <ng-container *ngFor="let lot of lots">
                 <ion-select-option [value]="lot">
                   {{ lot.loteId }}
@@ -25,12 +17,10 @@
           </ion-item>
         </ion-row>
         <div class="error">
-          <ion-label
-            *ngIf="
+          <ion-label *ngIf="
               form.hasError('required', 'lotId') &&
               (form.controls.lotId.touched || form.controls.lotId.dirty)
-            "
-          >
+            ">
             Este campo es requerido.
           </ion-label>
           <ion-label *ngIf="form.hasError('whitespace', 'lotId')">
@@ -41,17 +31,10 @@
       <ion-col size="5">
         <ion-row>
           <ion-item class="form-input ion-no-padding">
-            <ion-label class="ion-label" position="floating"
-              >Producto*</ion-label
-            >
+            <ion-label class="ion-label" position="floating">Producto*</ion-label>
 
-            <ion-select
-              placeholder="Seleccione un producto"
-              formControlName="productId"
-              interface="action-sheet"
-              (ionChange)="onChangeProduct($event)"
-              [disabled]="disabled(filterProducts)"
-            >
+            <ion-select placeholder="Seleccione un producto" interface="action-sheet"
+              (ionChange)="onChangeProduct($event)" [disabled]="disabled(filterProducts)">
               <ng-container *ngFor="let product of filterProducts">
                 <ion-select-option [value]="product">
                   {{ product.description }} - {{ product.quantity }}
@@ -61,12 +44,10 @@
           </ion-item>
         </ion-row>
         <div class="error">
-          <ion-label
-            *ngIf="
+          <ion-label *ngIf="
               form.hasError('required', 'productId') &&
               (form.controls.productId.touched || form.controls.productId.dirty)
-            "
-          >
+            ">
             Este campo es requerido.
           </ion-label>
           <ion-label *ngIf="form.hasError('whitespace', 'productId')">
@@ -80,24 +61,17 @@
       <ion-col size="5">
         <ion-row>
           <ion-item class="form-input ion-no-padding">
-            <ion-label class="ion-label" position="floating"
-              >Fecha de ingreso*</ion-label
-            >
-            <ion-input
-              placeholder="Ingresa fecha"
-              formControlName="expirationDate"
-            >
+            <ion-label class="ion-label" position="floating">Fecha de ingreso*</ion-label>
+            <ion-input placeholder="Ingresa fecha" formControlName="expirationDate">
             </ion-input>
           </ion-item>
         </ion-row>
         <div class="error">
-          <ion-label
-            *ngIf="
+          <ion-label *ngIf="
               form.hasError('required', 'expirationDate') &&
               (form.controls.expirationDate.touched ||
                 form.controls.expirationDate.dirty)
-            "
-          >
+            ">
             Este campo es requerido.
           </ion-label>
           <ion-label *ngIf="form.hasError('whitespace', 'expirationDate')">
@@ -109,24 +83,17 @@
       <ion-col size="5">
         <ion-row>
           <ion-item class="form-input ion-no-padding">
-            <ion-label class="ion-label" position="floating"
-              >No. Paquetes/Piezas*</ion-label
-            >
-            <ion-input
-              placeholder="Ingresa número"
-              formControlName="numberpackages"
-            >
+            <ion-label class="ion-label" position="floating">No. Paquetes/Piezas*</ion-label>
+            <ion-input placeholder="Ingresa número" formControlName="numberpackages">
             </ion-input>
           </ion-item>
         </ion-row>
         <div class="error">
-          <ion-label
-            *ngIf="
+          <ion-label *ngIf="
               form.hasError('required', 'numberpackages') &&
               (form.controls.numberpackages.touched ||
                 form.controls.numberpackages.dirty)
-            "
-          >
+            ">
             Este campo es requerido.
           </ion-label>
           <ion-label *ngIf="form.hasError('whitespace', 'numberpackages')">
@@ -139,16 +106,12 @@
       <ion-col size="12">
         <ion-row>
           <ion-item class="form-input ion-no-padding">
-            <ion-label class="ion-label" position="floating"
-              >Observaciones</ion-label
-            >
-            <ion-textarea
-              rows="2"
-              formControlName="observations"
-            ></ion-textarea>
+            <ion-label class="ion-label" position="floating">Observaciones</ion-label>
+            <ion-textarea rows="2" formControlName="observations"></ion-textarea>
           </ion-item>
         </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>
+  {{form.value | json}}
 </form>

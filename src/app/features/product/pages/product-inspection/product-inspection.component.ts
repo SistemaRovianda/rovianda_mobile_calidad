@@ -63,15 +63,15 @@ export class ProductInspectionComponent implements OnInit {
 
   idProductSuccess: string;
 
-  lots$: Observable<lotResponse[]> = this.store.select(
-    fromCatalogLots.fetchAllLots
-  );
+  lots$: Observable<lotResponse[]>;
 
   constructor(private store: Store<AppStoreState>, private route: Router) {
     this.activeUsersBtn = false;
   }
 
   ngOnInit() {
+    this.lots$ = this.store.select(fromCatalogLots.fetchAllLots);
+
     this.store.dispatch(fromStepperActions.stepperInit({ steps: this.steps }));
     setTimeout(() => {
       this.firstForm.form.valueChanges.subscribe(() => {

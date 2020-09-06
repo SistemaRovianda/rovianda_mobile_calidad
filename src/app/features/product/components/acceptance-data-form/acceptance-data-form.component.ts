@@ -32,7 +32,9 @@ export class AcceptanceDataFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.lots);
+  }
 
   onSubmit() {
     this.submit.emit(this.form.value);
@@ -43,9 +45,10 @@ export class AcceptanceDataFormComponent implements OnInit {
     this.form.get("productId").setValue(evt.detail.value.id);
   }
 
-  change() {
-    const value = this.form.get("loteId").value;
-    this.filterProducts = value.products;
+  change(evt) {
+    console.log("change...", evt);
+    // const value = this.form.get("loteId").value;
+    this.filterProducts = evt.detail.value.products;
   }
 
   disabled(e) {
