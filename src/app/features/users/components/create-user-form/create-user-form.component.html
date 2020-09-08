@@ -3,38 +3,61 @@
     <ion-row class="form form__row form__row--first">
       <ion-col class="form form__column" size="6">
         <ion-item class="form form__item ion-no-padding">
-          <ion-label class="form form__label" position="floating">Elaboro*</ion-label>
-          <ion-input class="form form__input" disabled="true" placeholder="{{ nameElaborated | async }}"
-            value="{{ nameElaborated | async }}" formControlName="nameElaborated">
+          <ion-label class="form form__label" position="floating"
+            >Elaboro*</ion-label
+          >
+          <ion-input
+            class="form form__input"
+            disabled="true"
+            placeholder="{{ nameElaborated | async }}"
+            value="{{ nameElaborated | async }}"
+            formControlName="nameElaborated"
+          >
           </ion-input>
         </ion-item>
         <div class="form form__message-container">
-          <ion-label class="form form__label form__label--error" *ngIf="
+          <ion-label
+            class="form form__label form__label--error"
+            *ngIf="
               form.hasError('required', 'nameElaborated') &&
               (form.controls.nameElaborated.touched ||
                 form.controls.nameElaborated.dirty)
-            ">
+            "
+          >
             Este campo es requerido.
           </ion-label>
-          <ion-label class="form form__label form__label--error" *ngIf="form.hasError('whitespace', 'nameElaborated')">
+          <ion-label
+            class="form form__label form__label--error"
+            *ngIf="form.hasError('whitespace', 'nameElaborated')"
+          >
             No has introducido caracteres.
           </ion-label>
         </div>
       </ion-col>
       <ion-col class="form form__column" size="6">
         <ion-item class="form form__item ion-no-padding">
-          <ion-label class="form form__label" position="floating">Puesto*</ion-label>
-          <ion-input class="form form__input" disabled="true" placeholder="{{ job | async }}" value="{{ job | async }}"
-            formControlName="jobElaborated">
+          <ion-label class="form form__label" position="floating"
+            >Puesto*</ion-label
+          >
+          <ion-input
+            class="form form__input"
+            disabled="true"
+            placeholder="{{ job | async }}"
+            value="{{ job | async }}"
+            formControlName="jobElaborated"
+          >
           </ion-input>
         </ion-item>
 
         <div class="form form__message-container">
-          <ion-label class="form form__label form__label--error" *ngIf="
+          <ion-label
+            class="form form__label form__label--error"
+            *ngIf="
               form.hasError('required', 'jobElaborated') &&
               (form.controls.jobElaborated.touched ||
                 form.controls.jobElaborated.dirty)
-            ">
+            "
+          >
             Este campo es requerido.
           </ion-label>
         </div>
@@ -44,37 +67,61 @@
     <ion-row class="form form__row form__row--second">
       <ion-col class="form form__column" size="6">
         <ion-item class="form form__item ion-no-padding">
-          <ion-label class="form form__label" position="floating">Verifico*</ion-label>
+          <ion-label class="form form__label" position="floating"
+            >Verifico*</ion-label
+          >
 
-          <ion-select class="form form__select" interface="action-sheet" placeholder="Seleccione nombre"
-            formControlName="nameVerify" (ionChange)="selectNameVerify($event)">
-            <ion-select-option *ngFor="let user of users | async" [value]="user">{{ user.fullName }}</ion-select-option>
+          <ion-select
+            class="form form__select"
+            interface="action-sheet"
+            placeholder="Seleccione nombre"
+            formControlName="nameVerify"
+            (ionChange)="selectNameVerify($event)"
+          >
+            <ion-select-option
+              *ngFor="let user of users | async"
+              [value]="user"
+              >{{ user.fullName }}</ion-select-option
+            >
           </ion-select>
         </ion-item>
 
         <div class="form form__message-container">
-          <ion-label class="form form__label form__label--error" *ngIf="
+          <ion-label
+            class="form form__label form__label--error"
+            *ngIf="
               form.hasError('required', 'nameVerify') &&
               (form.controls.nameVerify.touched ||
                 form.controls.nameVerify.dirty)
-            ">
+            "
+          >
             Este campo es requerido.
           </ion-label>
         </div>
       </ion-col>
       <ion-col class="form form__column" size="6">
         <ion-item class="form form__item ion-no-padding">
-          <ion-label class="form form__label" position="floating">Puesto*</ion-label>
-          <ion-input class="form form__input" disabled="true" placeholder="{{ job | async }}"
-            value="{{ userVerifyJob }}" formControlName="jobVerify">
+          <ion-label class="form form__label" position="floating"
+            >Puesto*</ion-label
+          >
+          <ion-input
+            class="form form__input"
+            disabled="true"
+            placeholder="{{ job | async }}"
+            value="{{ userVerifyJob }}"
+            formControlName="jobVerify"
+          >
           </ion-input>
         </ion-item>
 
         <div class="form form__message-container">
-          <ion-label class="form form__label form__label--error" *ngIf="
+          <ion-label
+            class="form form__label form__label--error"
+            *ngIf="
               form.hasError('required', 'jobVerify') &&
               (form.controls.jobVerify.touched || form.controls.jobVerify.dirty)
-            ">
+            "
+          >
             Este campo es requerido.
           </ion-label>
         </div>

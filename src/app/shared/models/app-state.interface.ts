@@ -22,7 +22,7 @@ export interface AppStoreState {
 
 export interface newProductState {
   product: any;
-  idProductInspectionSucess?: string;
+  idProductInspectionSucess?: any;
   error: string;
   loading: boolean;
   dringId?: any;

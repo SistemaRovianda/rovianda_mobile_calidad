@@ -7,6 +7,7 @@ import {
   ProductLot,
 } from "src/app/shared/models/product-inspection.interface";
 import isEmpty from "lodash.isempty";
+import * as moment from "moment";
 
 @Component({
   selector: "acceptance-data-form",
@@ -41,7 +42,14 @@ export class AcceptanceDataFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submit.emit(this.form.value);
+    const { expirationDate, ...value } = this.form.value;
+
+    const payload = {
+      ...value,
+      expirationDate: moment(expirationDate).format("YYYY-MM-DD"),
+    };
+
+    this.submit.emit(payload);
   }
 
   change(evt) {

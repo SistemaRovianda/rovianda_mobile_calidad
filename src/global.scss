@@ -38,3 +38,17 @@ ion-button {
     --height: 300px;
   }
 }
+
+.modal-size-user {
+  @include breakpoint-size(ms-extra-small) {
+    --height: 250px;
+  }
+
+  @include breakpoint-size(ms-small) {
+    --height: 250px;
+  }
+
+  @include breakpoint-size(ms-extra-large) {
+    --height: 320px;
+  }
+}

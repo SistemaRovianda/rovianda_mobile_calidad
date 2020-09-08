@@ -4,6 +4,7 @@ import { Storage } from "@ionic/storage";
 import { Store } from "@ngrx/store";
 import { from, Observable } from "rxjs";
 import { usersSelector } from "src/app/features/users/store/users/users.selectors";
+import * as usersActions from "src/app/features/users/store/users/users.actions";
 import { AppStoreState } from "src/app/shared/models/app-state.interface";
 import { UserRegistered } from "src/app/shared/models/user.interface";
 import { whitespaceValidator } from "src/app/shared/validators/whitespace.validator";
@@ -45,11 +46,13 @@ export class CreateUserFormComponent implements OnInit {
     this.job = from(
       this.storage.get("job").then((res) => Promise.resolve(res))
     );
-
-    this.users = this.store.select(usersSelector);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.users = this.store.select(usersSelector);
+
+    this.store.dispatch(usersActions.fetchUsers());
+  }
 
   onSubmit() {
     const {
@@ -58,6 +61,7 @@ export class CreateUserFormComponent implements OnInit {
       nameVerify,
       jobVerify,
     } = this.form.value;
+
     const user = {
       nameElaborated: nameElaborated.trim(),
       jobElaborated: jobElaborated.trim(),

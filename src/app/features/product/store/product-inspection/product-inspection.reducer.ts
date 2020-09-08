@@ -21,7 +21,7 @@ const _productInspectionReducer = createReducer<newProductState>(
   on(fromActions.newProductSuccess, (state, { id }) => ({
     ...state,
     loading: false,
-    idProductInspectionSucess: id.toString(),
+    idProductInspectionSucess: id,
   })),
 
   on(fromActions.newProductError, (state, { error }) => ({

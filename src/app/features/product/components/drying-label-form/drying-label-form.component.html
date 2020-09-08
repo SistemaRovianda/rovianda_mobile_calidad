@@ -13,7 +13,7 @@
               placeholder="Selecciona un producto"
               formControlName="productId"
               style="--placeholder-color: black; --placeholder-opacity: 0.9"
-              [disabled]="!(productsRovianda$ | async)"
+              [disabled]="!productsRovianda$ | async"
             >
               <ion-select-option
                 *ngFor="let pr of productsRovianda$ | async"

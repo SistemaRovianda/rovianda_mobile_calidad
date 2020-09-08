@@ -2,19 +2,27 @@ import { Injectable } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
-import { catchError, exhaustMap, tap } from "rxjs/operators";
+import { catchError, exhaustMap, tap, map } from "rxjs/operators";
 import { MessageDialogComponent } from "src/app/shared/components/message-dialog/message-dialog.component";
 import { ProductInspectionService } from "src/app/shared/services/product-inspection.service";
 import * as fromActions from "./product-inspection.actions";
+import { Router } from "@angular/router";
+import { Store } from "@ngrx/store";
+import { AppStoreState } from "src/app/shared/models/app-state.interface";
+import { idProductInspectorSuccess } from "../../store/product-inspection/product-inspection.selectors";
 
 @Injectable({
   providedIn: "root",
 })
 export class ProductInspectionEffects {
+  idProductSuccess: string;
+
   constructor(
     private actions$: Actions,
     private productsService: ProductInspectionService,
-    public modalController: ModalController
+    public modalController: ModalController,
+    private store: Store<AppStoreState>,
+    private route: Router
   ) {}
 
   product$ = createEffect(() =>
@@ -22,15 +30,24 @@ export class ProductInspectionEffects {
       ofType(fromActions.newProduct),
       exhaustMap((action) =>
         this.productsService.newProductInspection(action.product).pipe(
-          tap((id) => {
-            fromActions.newProductSuccess(id);
+          map((id) => {
+            console.log("id generado por back ", id);
             this.openModal("Exitó", "¡Se ha guardado con exitó!");
+            this.user(id.id);
+            this.modalController.dismiss();
+            return fromActions.newProductSuccess(id.id);
           }),
           catchError((error) => this.errorHandler(error))
         )
       )
     )
   );
+
+  user(id) {
+    console.log("id", id);
+
+    this.route.navigate([`/user/${id}/create-user`]);
+  }
 
   errorHandler(error: any) {
     this.openModal("Error", "¡Ha ocurrido un problema, intente de nuevo!");

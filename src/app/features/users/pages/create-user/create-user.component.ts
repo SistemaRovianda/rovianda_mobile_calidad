@@ -44,7 +44,7 @@ export class CreateUserComponent implements OnInit {
   async confirmAddUsers(users) {
     const modal = await this._modalCtrl.create({
       component: ConfirmAddUserComponent,
-      cssClass: "modal-size",
+      cssClass: "modal-size-user",
       componentProps: {
         id: this.route.snapshot.paramMap.get("id"),
         users: users,

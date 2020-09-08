@@ -15,7 +15,7 @@ export class UsersService {
 
   getUsers(): Observable<UserRegistered[]> {
     // return this.http.get<User>(`${this.endpoint}/oven/users/${processId}`);
-    return this.http.get<UserRegistered[]>(`${this.endpoint}/user`);
+    return this.http.get<UserRegistered[]>(`${this.endpoint}/user/rol/QUALITY`);
   }
 
   addUser(processId: string, users: UsersCheckers): Observable<string> {
