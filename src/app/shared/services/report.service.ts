@@ -33,7 +33,7 @@ export class Reportervice {
         .download(
           `${
             this.endpoint
-          }report/drying/${id}?uid=${this.authService.getUID()}`,
+          }/report/drying/${id}?uid=${this.authService.getUID()}`,
           this.file.dataDirectory + id + ".pdf",
           false,
           {
