@@ -1,4 +1,8 @@
-<title-header [titlePath]="'Regresar'" [title]="'Hornos'" (onBack)="onBackPage($event)"></title-header>
+<title-header
+  [titlePath]="'Regresar'"
+  [title]="'Calidad'"
+  (onBack)="onBackPage($event)"
+></title-header>
 
 <ion-content>
   <ion-grid class="container container--all">
@@ -10,13 +14,23 @@
 
     <ion-row class="container container__row container__row--form">
       <ion-col class="container container__column" size="12">
-        <create-user-form #form (onSubmit)="onSubmitUsers($event)"></create-user-form>
+        <create-user-form
+          #form
+          (onSubmit)="onSubmitUsers($event)"
+        ></create-user-form>
       </ion-col>
     </ion-row>
 
-    <ion-row class="container container__row container__row--buttons ion-justify-content-around">
-      <ion-button class="container container__button" color="secondary" size="short" [disabled]="form.form.invalid"
-        (click)="addUsers()">
+    <ion-row
+      class="container container__row container__row--buttons ion-justify-content-around"
+    >
+      <ion-button
+        class="container container__button"
+        color="secondary"
+        size="short"
+        [disabled]="form.form.invalid"
+        (click)="addUsers()"
+      >
         <!-- <span *ngIf="!(loading$ | async)" size="12">GUARDAR</span> -->
         GUARDAR
         <ion-spinner *ngIf="loading$ | async" name="crescent"></ion-spinner>
