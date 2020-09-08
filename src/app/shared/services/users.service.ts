@@ -20,7 +20,7 @@ export class UsersService {
 
   addUser(processId: string, users: UsersCheckers): Observable<string> {
     return this.http.post<string>(
-      `${this.endpoint}/oven/users/${processId}`,
+      `${this.endpoint}/quality/users/${processId}`,
       users
     );
   }

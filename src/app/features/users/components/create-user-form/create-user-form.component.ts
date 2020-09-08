@@ -69,7 +69,6 @@ export class CreateUserFormComponent implements OnInit {
   }
 
   selectNameVerify(evt) {
-    console.log("seleccino: ", evt.detail.value.job);
     this.userVerifyJob = evt.detail.value.job;
   }
 }
