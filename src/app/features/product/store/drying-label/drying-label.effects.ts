@@ -26,7 +26,7 @@ export class DryingLabelEffects {
         this.dryingService.newDrying(action.product).pipe(
           map((id: any) => {
             this.openModal("Exitó", "¡Se ha guardado con exitó!");
-            this.reportService.getReport(id);
+            this.reportService.getReport(id.dringId);
 
             return fromActions.newProductSuccess(id.dringId);
           }),
