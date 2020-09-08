@@ -32,12 +32,6 @@ export class AuthService {
         authDomain: "rovianda-88249.firebaseapp.com",
       });
     }
-
-    // firebase.initializeApp({
-    //   apiKey: "AIzaSyDaoKnC-MSM0b069pawJ5KI1eWlbmng99o",
-    //   authDomain: "rovianda-88249.firebaseapp.com",
-    // });
-
     this.auth = firebase.auth();
   }
 
@@ -58,7 +52,6 @@ export class AuthService {
   isAuth(): Observable<any> {
     return from(
       this._storage.get("token").then((token) => {
-        console.log("Token: ", token);
         if (token) return Promise.resolve(true);
         return false;
       })

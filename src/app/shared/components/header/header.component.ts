@@ -17,7 +17,6 @@ export class TitleHeaderComponent implements OnInit {
   ngOnInit() {}
 
   onClick() {
-    console.log("click");
     this.onBack.emit(this.titlePath);
   }
 }

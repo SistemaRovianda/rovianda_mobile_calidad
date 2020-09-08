@@ -31,7 +31,6 @@ export class ProductInspectionEffects {
       exhaustMap((action) =>
         this.productsService.newProductInspection(action.product).pipe(
           map((id) => {
-            console.log("id generado por back ", id);
             this.openModal("Exitó", "¡Se ha guardado con exitó!");
             this.user(id.id);
             this.modalController.dismiss();
@@ -44,8 +43,6 @@ export class ProductInspectionEffects {
   );
 
   user(id) {
-    console.log("id", id);
-
     this.route.navigate([`/user/${id}/create-user`]);
   }
 

@@ -37,9 +37,7 @@ export class AcceptanceDataFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    console.log(this.lots);
-  }
+  ngOnInit() {}
 
   onSubmit() {
     const { expirationDate, ...value } = this.form.value;
@@ -53,7 +51,6 @@ export class AcceptanceDataFormComponent implements OnInit {
   }
 
   change(evt) {
-    console.log("change...", evt.detail.value);
     this.form.get("productId").setValue(evt.detail.value.productId);
     this.form.get("lotId").reset();
 

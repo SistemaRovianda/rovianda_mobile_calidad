@@ -15,7 +15,6 @@ export class LayoutPage implements OnInit {
   ngOnInit() {}
 
   onLogin(signin: SignIn) {
-    console.log("login", signin);
     this._store.dispatch(
       signIn({ email: signin.email, password: signin.password })
     );

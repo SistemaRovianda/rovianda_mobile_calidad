@@ -20,7 +20,6 @@ export class ConfirmReportComponent implements OnInit {
   }
 
   cancel() {
-    console.log("cancel");
     this._modalCtrl.dismiss();
   }
 }

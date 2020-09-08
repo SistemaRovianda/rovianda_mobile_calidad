@@ -43,7 +43,6 @@ export class StepperComponent implements OnInit {
   }
 
   position(i) {
-    console.log(i);
     this.index.emit(i);
   }
 }
