@@ -1,12 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { ModalController } from "@ionic/angular";
 import { Store } from "@ngrx/store";
 import { AppStoreState } from "src/app/shared/models/app-state.interface";
-import { signOut } from "../../../../features/landing/store/login/login.action";
-import { ModalController } from "@ionic/angular";
-
 import * as fromActions from "../../store/drying-label/drying-label.actions";
-import { GenerateReportComponent } from "../../dialogs/generate-report/generate-report.component";
-import { Router } from "@angular/router";
 
 @Component({
   selector: "app-drying-label",

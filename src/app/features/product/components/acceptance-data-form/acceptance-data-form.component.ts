@@ -1,7 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 import { whitespaceValidator } from "src/app/shared/validators/whitespace.validator";
-import { ProductInterface } from "src/app/shared/models/product-inspection.interface";
+import {
+  ProductInterface,
+  Products,
+  ProductLot,
+} from "src/app/shared/models/product-inspection.interface";
 import isEmpty from "lodash.isempty";
 
 @Component({
@@ -18,17 +22,17 @@ export class AcceptanceDataFormComponent implements OnInit {
   @Output("onSubmit") submit = new EventEmitter();
 
   form: FormGroup;
-  filterProducts: ProductInterface[];
+  filterProducts: ProductLot[];
 
-  @Input() lots = [];
+  @Input() lots: Products[] = [];
 
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
       productId: ["", [Validators.required]],
       lotId: ["", [Validators.required]],
       expirationDate: ["", [Validators.required, whitespaceValidator]],
-      numberpackages: ["", [Validators.required, whitespaceValidator]],
-      observations: [null],
+      numberPackages: ["", [Validators.required, whitespaceValidator]],
+      observations: [null, [Validators.required, whitespaceValidator]],
     });
   }
 
@@ -40,15 +44,12 @@ export class AcceptanceDataFormComponent implements OnInit {
     this.submit.emit(this.form.value);
   }
 
-  onChangeProduct(evt) {
-    console.log("product: ", evt.detail.value);
-    this.form.get("productId").setValue(evt.detail.value.id);
-  }
-
   change(evt) {
-    console.log("change...", evt);
-    // const value = this.form.get("loteId").value;
-    this.filterProducts = evt.detail.value.products;
+    console.log("change...", evt.detail.value);
+    this.form.get("productId").setValue(evt.detail.value.productId);
+    this.form.get("lotId").reset();
+
+    this.filterProducts = evt.detail.value.lot;
   }
 
   disabled(e) {

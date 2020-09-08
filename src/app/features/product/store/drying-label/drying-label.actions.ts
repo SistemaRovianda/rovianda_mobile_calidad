@@ -1,5 +1,4 @@
 import { createAction, props } from "@ngrx/store";
-import { ProductInspection } from "src/app/shared/models/product-inspection.interface";
 
 const ADD_PRODUCTS = "['PRODUCTS'] Add Products";
 

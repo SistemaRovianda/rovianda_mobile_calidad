@@ -14,10 +14,6 @@ $color-text-secondary: var(--ion-color-secondary);
   font-size: 1em;
 }
 
-ion-input {
-  font-size: 0.8em;
-}
-
 .ion-label {
   width: 100vw;
   color: $color-text-tertiary;
@@ -60,6 +56,11 @@ form {
       @include breakpoint-size(ms-extra-large) {
         font-size: var(--fs-text-title-xl);
       }
+    }
+
+    ion-datetime {
+      --padding-bottom: 0px;
+      --padding-top: 0px;
     }
   }
 

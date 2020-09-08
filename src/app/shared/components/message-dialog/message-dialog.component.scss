@@ -1,3 +1,5 @@
+@import "../../../../theme/mixins.scss";
+
 .btn {
   margin-left: 10px;
 }
@@ -9,10 +11,26 @@
 .body {
   margin-left: 10px;
   color: #575552;
+
+  @include breakpoint-size(ms-extra-small) {
+    font-size: var(--fs-text-xsm);
+  }
+
+  @include breakpoint-size(ms-small) {
+    font-size: var(--fs-text-sm);
+  }
+
+  @include breakpoint-size(ms-extra-large) {
+    font-size: var(--fs-text-xl);
+  }
 }
 
 .content {
   padding: 20px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
 }
 
 .isError {
@@ -23,4 +41,33 @@
 .isSuccess {
   margin: 5px 0;
   color: #2dd36f;
+}
+
+.isSuccess,
+.isError {
+  @include breakpoint-size(ms-extra-small) {
+    font-size: var(--fs-text-title-xsm);
+  }
+
+  @include breakpoint-size(ms-small) {
+    font-size: var(--fs-text-title-sm);
+  }
+
+  @include breakpoint-size(ms-extra-large) {
+    font-size: var(--fs-text-title-xl);
+  }
+}
+
+ion-button {
+  @include breakpoint-size(ms-extra-small) {
+    font-size: var(--fs-text-xsm);
+  }
+
+  @include breakpoint-size(ms-small) {
+    font-size: var(--fs-text-sm);
+  }
+
+  @include breakpoint-size(ms-extra-large) {
+    font-size: var(--fs-text-xl);
+  }
 }

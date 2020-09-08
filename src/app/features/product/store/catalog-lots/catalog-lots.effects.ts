@@ -15,7 +15,7 @@ export class CatalogLotsEffects {
     this.actions$.pipe(
       ofType(fromActions.fetchAllLots),
       exhaustMap((action) =>
-        this.lotsService.getLots(action.typeLot, action.status).pipe(
+        this.lotsService.getLots().pipe(
           map((lots) => fromActions.fetchAllLotsSuccess({ lots })),
           catchError((error) => of(fromActions.fetchAllLotsError(error)))
         )

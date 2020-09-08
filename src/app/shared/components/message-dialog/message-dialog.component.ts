@@ -23,7 +23,6 @@ export class MessageDialogComponent implements OnInit {
   }
 
   save() {
-    this.router.navigateByUrl("/product/list");
     this.modalController.dismiss();
   }
 }

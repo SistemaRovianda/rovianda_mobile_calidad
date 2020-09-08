@@ -1,23 +1,27 @@
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouteReuseStrategy } from "@angular/router";
-
-import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
+import { FileOpener } from "@ionic-native/file-opener/ngx";
+import {
+  FileTransfer,
+  FileTransferObject,
+} from "@ionic-native/file-transfer/ngx";
+import { File } from "@ionic-native/file/ngx";
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
-
-import { AppComponent } from "./app.component";
-import { AppRoutingModule } from "./app-routing.module";
-import { StoreModule } from "@ngrx/store";
-import { EffectsModule } from "@ngrx/effects";
-import { effects } from "./shared/store/effect/index.effects";
-import { HttpClientModule } from "@angular/common/http";
-import { AppProvidersModule } from "./providers/app-providers.module";
-import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-import { reducers, metaReducers } from "./shared/store/reducer/index.reducer";
-
+import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
 import { IonicStorageModule } from "@ionic/storage";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { AppProvidersModule } from "./providers/app-providers.module";
 import { MessageDialogModule } from "./shared/components/message-dialog/message-dialog.module";
+import { effects } from "./shared/store/effect/index.effects";
+import { metaReducers, reducers } from "./shared/store/reducer/index.reducer";
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,12 +45,17 @@ import { MessageDialogModule } from "./shared/components/message-dialog/message-
     HttpClientModule,
     AppProvidersModule,
     MessageDialogModule,
+    AngularFireAuthModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AppProvidersModule,
+    FileTransfer,
+    FileOpener,
+    FileTransferObject,
+    File,
   ],
   bootstrap: [AppComponent],
 })

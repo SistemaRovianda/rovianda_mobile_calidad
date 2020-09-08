@@ -1,4 +1,8 @@
-<title-header [titlePath]="'Regresar'" [title]="'Calidad'" (onBack)="onBack($event)"></title-header>
+<title-header
+  [titlePath]="'Regresar'"
+  [title]="'Calidad'"
+  (onBack)="onBack($event)"
+></title-header>
 
 <ion-content>
   <div class="container">
@@ -10,18 +14,30 @@
       </ion-row>
       <ion-row>
         <ion-col size="12">
-          <div *ngIf="
+          <div
+            *ngIf="
               !(next$ | async) || ((index$ | async) == 0 && (next$ | async))
-            " class="page">
-            <acceptance-data-form (onSubmit)="onSubmit($event)" [generalData]="apareanceFirstForm"
-              [lots]="lots$ | async"></acceptance-data-form>
+            "
+            class="page"
+          >
+            <acceptance-data-form
+              (onSubmit)="onSubmit($event)"
+              [generalData]="apareanceFirstForm"
+              [lots]="lots$ | async"
+            ></acceptance-data-form>
           </div>
           <div *ngIf="(next$ | async) && (index$ | async) == 1" class="page">
-            <acceptance-data-second-form (onSubmit)="onSecondSubmit($event)" [secondForm]="apareanceSecondForm">
+            <acceptance-data-second-form
+              (onSubmit)="onSecondSubmit($event)"
+              [secondForm]="apareanceSecondForm"
+            >
             </acceptance-data-second-form>
           </div>
           <div *ngIf="(next$ | async) && (index$ | async) == 2" class="page">
-            <acceptance-data-third-form (onSubmit)="onThirdSubmit($event)" [thirdForm]="apareanceThirdForm">
+            <acceptance-data-third-form
+              (onSubmit)="onThirdSubmit($event)"
+              [thirdForm]="apareanceThirdForm"
+            >
             </acceptance-data-third-form>
           </div>
         </ion-col>
@@ -36,30 +52,55 @@
           <stepper (index)="position($event)"></stepper>
         </ion-col>
       </ion-row>
-      <ion-row class="ion-justify-content-center" *ngIf="!(next$ | async) || ((index$ | async) == 0 && (next$ | async))"
-        size="12">
-        <ion-button color="primary" (click)="validateForm()" [disabled]="disabledButton">
+      <ion-row
+        class="ion-justify-content-center"
+        *ngIf="!(next$ | async) || ((index$ | async) == 0 && (next$ | async))"
+        size="12"
+      >
+        <ion-button
+          color="primary"
+          (click)="validateForm()"
+          [disabled]="disabledButton"
+        >
           <ion-grid>
             <ion-col>Siguiente</ion-col>
           </ion-grid>
         </ion-button>
       </ion-row>
-      <ion-row class="ion-justify-content-center" *ngIf="(next$ | async) && (index$ | async) == 1">
-        <ion-button color="primary" (click)="validateSecondForm()" [disabled]="disabledButton">
+      <ion-row
+        class="ion-justify-content-center"
+        *ngIf="(next$ | async) && (index$ | async) == 1"
+      >
+        <ion-button
+          color="primary"
+          (click)="validateSecondForm()"
+          [disabled]="disabledButton"
+        >
           <ion-grid>
             <ion-col size="12">Siguiente</ion-col>
           </ion-grid>
         </ion-button>
       </ion-row>
 
-      <ion-row class="ion-justify-content-center" *ngIf="(next$ | async) && (index$ | async) == 2">
-        <ion-button color="secondary" [disabled]="disabledButton" (click)="onSaveInspection()">
+      <ion-row
+        class="ion-justify-content-center"
+        *ngIf="(next$ | async) && (index$ | async) == 2"
+      >
+        <ion-button
+          color="secondary"
+          [disabled]="disabledButton"
+          (click)="onSaveInspection()"
+        >
           <ion-grid>
             <ion-col *ngIf="!(loading$ | async)" size="12">Guardar</ion-col>
             <ion-spinner *ngIf="loading$ | async" name="crescent"></ion-spinner>
           </ion-grid>
         </ion-button>
-        <ion-button color="primary" (click)="addUsers()" [disabled]="activeUsersBtn">
+        <ion-button
+          color="primary"
+          (click)="addUsers()"
+          [disabled]="activeUsersBtn"
+        >
           <ion-grid>
             <ion-col>Usuarios</ion-col>
           </ion-grid>

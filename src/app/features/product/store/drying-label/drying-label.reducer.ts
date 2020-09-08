@@ -7,6 +7,7 @@ const initialState: newProductState = {
   product: null,
   error: null,
   loading: false,
+  dringId: null,
 };
 
 const _productInspectionReducer = createReducer<newProductState>(
@@ -17,9 +18,10 @@ const _productInspectionReducer = createReducer<newProductState>(
     loading: true,
   })),
 
-  on(fromActions.newProductSuccess, (state) => ({
+  on(fromActions.newProductSuccess, (state, { id }) => ({
     ...state,
     loading: false,
+    product: id,
   })),
 
   on(fromActions.newProductError, (state, { error }) => ({

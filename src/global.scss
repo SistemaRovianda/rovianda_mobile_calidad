@@ -1,5 +1,7 @@
 @import "~@ionic/angular/css/core.css";
 
+@import "./theme/mixins.scss";
+
 /* Basic CSS for apps built with Ionic */
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
@@ -21,4 +23,18 @@
 
 ion-button {
   text-transform: none;
+}
+
+.modal-size {
+  @include breakpoint-size(ms-extra-small) {
+    --height: 200px;
+  }
+
+  @include breakpoint-size(ms-small) {
+    --height: 230px;
+  }
+
+  @include breakpoint-size(ms-extra-large) {
+    --height: 300px;
+  }
 }

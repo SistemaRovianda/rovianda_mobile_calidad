@@ -25,4 +25,5 @@ export interface newProductState {
   idProductInspectionSucess?: string;
   error: string;
   loading: boolean;
+  dringId?: any;
 }

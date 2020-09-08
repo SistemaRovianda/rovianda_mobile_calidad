@@ -16,13 +16,7 @@ export class LotsService {
     this.url = `${endpoint}`;
   }
 
-  getLots(type: string, status: string): Observable<any> {
-    const params = new HttpParams({
-      fromObject: {
-        type: type,
-        status: status,
-      },
-    });
-    return this.http.get<any>(`${this.url}/lots`, { params });
+  getLots(): Observable<any> {
+    return this.http.get<any>(`${this.url}/packaging/lot`);
   }
 }

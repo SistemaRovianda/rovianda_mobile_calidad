@@ -24,14 +24,21 @@ export class AuthService {
     private _storage: Storage,
     @Inject(API_ENDPOINT_PROVIDER) private endpoint
   ) {
-    firebase.initializeApp({
-      apiKey: "AIzaSyDaoKnC-MSM0b069pawJ5KI1eWlbmng99o",
-      authDomain: "rovianda-88249.firebaseapp.com",
-    });
+    this.url = `${endpoint}`;
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        apiKey: "AIzaSyDaoKnC-MSM0b069pawJ5KI1eWlbmng99o",
+        authDomain: "rovianda-88249.firebaseapp.com",
+      });
+    }
+
+    // firebase.initializeApp({
+    //   apiKey: "AIzaSyDaoKnC-MSM0b069pawJ5KI1eWlbmng99o",
+    //   authDomain: "rovianda-88249.firebaseapp.com",
+    // });
 
     this.auth = firebase.auth();
-
-    this.url = `${endpoint}`;
   }
 
   signIn(email: string, password: string): Observable<any> {
@@ -66,6 +73,10 @@ export class AuthService {
         return Promise.resolve(false);
       })
     ).pipe(map((res) => res));
+  }
+
+  getUID() {
+    return this.auth.currentUser.uid;
   }
 
   getTokenCurrentUser(): Observable<any> {

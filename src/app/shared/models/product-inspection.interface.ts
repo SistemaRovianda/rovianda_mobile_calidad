@@ -35,3 +35,14 @@ export interface ProductRovianda {
   id: number;
   name: string;
 }
+
+export interface Products {
+  productId: number;
+  product: string;
+  lot: ProductLot[];
+}
+
+export interface ProductLot {
+  lotId: number;
+  processId: string;
+}
