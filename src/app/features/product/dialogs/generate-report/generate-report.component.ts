@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import { Store } from "@ngrx/store";
-import { AppStoreState } from "src/app/shared/Models/app-state.interface";
+import { AppStoreState } from "../../../../shared/models/app-state.interface";
 
 @Component({
   selector: "app-generate-report",

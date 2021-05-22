@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 import { Platform } from "@ionic/angular";
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
-import { AuthService } from "./shared/Services/auth.service";
+import { AuthService } from "./shared/services/auth.service";
 import { Router } from "@angular/router";
 import { mergeMap } from "rxjs/operators";
 import * as splash from "@capacitor/core";

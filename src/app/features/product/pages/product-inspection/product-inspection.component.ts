@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { Observable, BehaviorSubject } from "rxjs";
 import * as fromStepperActions from "../../../../shared/store/stepper/stepper.actions";
 import * as fromStepperSelect from "../../../../shared/store/stepper/stepper.selector";
-import { Store } from "@ngrx/store";
+import { select, Store } from "@ngrx/store";
 import { AppStoreState } from "src/app/shared/models/app-state.interface";
 import { AcceptanceDataFormComponent } from "../../components/acceptance-data-form/acceptance-data-form.component";
 import { AcceptanceDataSecondFormComponent } from "../../components/acceptance-data-second-form/acceptance-data-second-form.component";
@@ -15,6 +15,7 @@ import { lotResponse } from "src/app/shared/models/product-inspection.interface"
 
 import * as fromCatalogLotsActions from "../../../product/store/catalog-lots/catalog-lots.actions";
 import { idProductInspectorSuccess } from "../../store/product-inspection/product-inspection.selectors";
+import { SELECT_USER_UID } from "src/app/features/landing/store/authentication/authentication.selectors";
 
 @Component({
   selector: "app-product-inspection",
@@ -68,7 +69,7 @@ export class ProductInspectionComponent implements OnInit {
   constructor(private store: Store<AppStoreState>, private route: Router) {
     this.activeUsersBtn = false;
   }
-
+  uid:string=null;
   ngOnInit() {
     this.lots$ = this.store.select(fromCatalogLots.fetchAllLots);
 
@@ -85,6 +86,10 @@ export class ProductInspectionComponent implements OnInit {
         status: "PENDING",
       })
     );
+    this.store.pipe(select(SELECT_USER_UID)).subscribe((uid:string)=>{
+      this.uid =uid;
+    })
+    
   }
 
   onSubmit(payload) {
@@ -151,6 +156,7 @@ export class ProductInspectionComponent implements OnInit {
 
     const form = {
       ...firstForm,
+      uid:this.uid,
       validations: {
         ...secondForm,
         ...thirdForm,

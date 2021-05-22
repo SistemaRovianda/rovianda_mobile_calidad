@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
-import { catchError, exhaustMap, tap, map } from "rxjs/operators";
+import { catchError, exhaustMap, tap, map, switchMap } from "rxjs/operators";
 import { MessageDialogComponent } from "src/app/shared/components/message-dialog/message-dialog.component";
 import { ProductInspectionService } from "src/app/shared/services/product-inspection.service";
 import * as fromActions from "./product-inspection.actions";
@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { AppStoreState } from "src/app/shared/models/app-state.interface";
 import { idProductInspectorSuccess } from "../../store/product-inspection/product-inspection.selectors";
+import { fetchAllLots } from '../catalog-lots/catalog-lots.actions';
 
 @Injectable({
   providedIn: "root",
@@ -30,11 +31,10 @@ export class ProductInspectionEffects {
       ofType(fromActions.newProduct),
       exhaustMap((action) =>
         this.productsService.newProductInspection(action.product).pipe(
-          map((id) => {
+          switchMap((id) => {
             this.openModal("Exitó", "¡Se ha guardado con exitó!");
             this.user(id.id);
-            this.modalController.dismiss();
-            return fromActions.newProductSuccess(id.id);
+            return [fromActions.newProductSuccess(id.id),fetchAllLots({typeLot: "DRIEF",status: "PENDING"})];
           }),
           catchError((error) => this.errorHandler(error))
         )

@@ -45,4 +45,12 @@ export interface Products {
 export interface ProductLot {
   lotId: number;
   processId: string;
+  ovenProductId:number;
+}
+
+export interface ProductPresentation{
+    id: number;
+    presentation: number;
+    presentationType: string;
+    keySae:string;
 }

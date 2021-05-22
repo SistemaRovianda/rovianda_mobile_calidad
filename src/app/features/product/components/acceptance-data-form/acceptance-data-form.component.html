@@ -48,12 +48,12 @@
             <ion-select
               placeholder="Ingresa lote"
               style="--placeholder-color: black; --placeholder-opacity: 0.9"
-              formControlName="lotId"
               interface="action-sheet"
+              (ionChange)="selectionLot($event)"
               [disabled]="disabled(filterProducts)"
             >
               <ng-container *ngFor="let lot of filterProducts">
-                <ion-select-option [value]="lot.processId">
+                <ion-select-option [value]="lot">
                   {{ lot.lotId }}
                 </ion-select-option>
               </ng-container>
@@ -62,20 +62,40 @@
         </ion-row>
         <div class="error">
           <ion-label
-            *ngIf="
-              form.hasError('required', 'lotId') &&
-              (form.controls.lotId.touched || form.controls.lotId.dirty)
-            "
+            *ngIf="form.get('productId').value!='' && lotId==null"
           >
             Este campo es requerido.
-          </ion-label>
-          <ion-label *ngIf="form.hasError('whitespace', 'lotId')">
-            No has introducido caracteres.
           </ion-label>
         </div>
       </ion-col>
     </ion-row>
-
+    <ion-row class="ion-justify-content-around">
+      <ion-col>
+        <ion-item class="form-input ion-no-padding">
+          <ion-select
+              placeholder="Selecciona la presentación"
+              style="--placeholder-color: black; --placeholder-opacity: 0.9"
+              interface="action-sheet"
+              (ionChange)="selectionPresentation($event)"
+              [disabled]="!productPresentation.length"
+            >
+              <ng-container *ngFor="let presentation of productPresentation">
+                <ion-select-option [value]="presentation.id">
+                  {{ presentation.presentationType }} - {{presentation.keySae}}
+                </ion-select-option>
+              </ng-container>
+            </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-around">
+      <ion-col>
+        <ion-item>
+          <ion-button color="danger" disabled="{{ovenProductId==null}}" (click)="confirmCloseInspection()">Cerrar inspección a lote</ion-button>
+          <ion-label style="color:gray;font-size: small;">Dar clic en caso de haber con todas las inspecciones a este lote.</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
     <ion-row class="ion-justify-content-around">
       <ion-col size="5">
         <ion-row>
@@ -143,7 +163,7 @@
         <ion-row>
           <ion-item class="form-input ion-no-padding">
             <ion-label class="ion-label" position="floating"
-              >Observaciones*</ion-label
+              >Observaciones</ion-label
             >
             <ion-textarea
               rows="2"

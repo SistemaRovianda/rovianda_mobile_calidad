@@ -5,6 +5,7 @@ import { environment } from "src/environments/environment";
 import { Observable } from "rxjs";
 import {
   ProductInterface,
+  ProductPresentation,
   ProductRovianda,
 } from "../models/product-inspection.interface";
 
@@ -31,4 +32,9 @@ export class ProductService {
       `${environment.basePath}/products-rovianda`
     );
   }
+
+  getProductPresentations(productId:number):Observable<ProductPresentation[]>{
+    return this.http.get<ProductPresentation[]>(`${this.url}-rovianda/catalog/${productId}`); 
+  }
+  
 }

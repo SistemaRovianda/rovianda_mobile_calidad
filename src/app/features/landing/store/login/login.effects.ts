@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { from, of } from "rxjs";
 import { catchError, delay, exhaustMap, switchMap, tap } from "rxjs/operators";
 import * as fromLoginActions from "./login.action";
-import { AuthService } from "src/app/shared/Services/auth.service";
+import { AuthService } from "src/app/shared/services/auth.service";
 import * as fromAuthenticationUser from "../authentication/authentication.action";
 import { Storage } from "@ionic/storage";
 
@@ -74,7 +74,7 @@ export class LoginEffects {
             this._storage.set("role", rol);
             this._storage.set(
               "currentUser",
-              name + " " + firstSurname + " " + lastSurname
+              name
             );
             this._storage.set("job", job);
             return [

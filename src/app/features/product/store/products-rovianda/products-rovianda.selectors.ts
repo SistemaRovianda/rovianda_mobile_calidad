@@ -8,3 +8,8 @@ export const productsRoviandaSelector = createSelector(
   PRODUCTS_ROVIANDA_STATE,
   (state) => state.products
 );
+
+export const getPresentationsOfProductFromStore = createSelector(
+  PRODUCTS_ROVIANDA_STATE,
+  (state)=>state.presentations
+);

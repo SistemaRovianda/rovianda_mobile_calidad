@@ -1,5 +1,6 @@
+import { createEffect } from "@ngrx/effects";
 import { createAction, props } from "@ngrx/store";
-import { ProductRovianda } from "src/app/shared/models/product-inspection.interface";
+import { ProductPresentation, ProductRovianda } from "src/app/shared/models/product-inspection.interface";
 
 const LOAD_PRODUCTS_ROVIANDA = "[Products-Rovianda] Load Products";
 
@@ -20,3 +21,15 @@ export const loadProductsRoviandsError = createAction(
   LOAD_PRODUCTS_ROVIANDA_ERROR,
   props<{ error: string }>()
 );
+
+export const getPresentationOfProduct = createAction(
+  "[Product-rovianda] GetPresentationsOfProduct",
+  props<{productId:number}>()
+);
+
+export const setPresentationOfProduct = createAction(
+  "[Product-rovianda] SetPresentationsOfProduct",
+  props<{presentations:ProductPresentation[]}>()
+);
+
+

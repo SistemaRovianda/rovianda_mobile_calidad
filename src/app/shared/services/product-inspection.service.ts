@@ -16,4 +16,8 @@ export class ProductInspectionService {
   newProductInspection(body: ProductInspection): Observable<any> {
     return this.http.post<string>(`${this.endpoint}/quality/inspection`, body);
   }
+
+  closeInspection(ovenProductId:number){
+    return this.http.patch(`${this.endpoint}/packaging/lot-inspectioned/${ovenProductId}`,{});
+  }
 }

@@ -1,21 +1,24 @@
-import { ProductRovianda } from "src/app/shared/models/product-inspection.interface";
+import { ProductPresentation, ProductRovianda } from "src/app/shared/models/product-inspection.interface";
 import { createReducer, on, Action } from "@ngrx/store";
 import {
   loadProductsRovianda,
   loadProductsRoviandaSuccess,
   loadProductsRoviandsError,
+  setPresentationOfProduct,
 } from "./products-rovianda.actions";
 
 export interface ProductsRoviandaState {
   loading: boolean;
   products: ProductRovianda[];
   error: string;
+  presentations:ProductPresentation[]
 }
 
 const initialState: ProductsRoviandaState = {
   loading: false,
   products: [],
   error: null,
+  presentations:[]
 };
 
 const _productsRoviandaReducer = createReducer<ProductsRoviandaState>(
@@ -33,7 +36,8 @@ const _productsRoviandaReducer = createReducer<ProductsRoviandaState>(
     ...state,
     loading: false,
     error,
-  }))
+  })),
+  on(setPresentationOfProduct,(state,{presentations}) => ({...state,presentations}) )
 );
 
 export function productsRoviandaReducer(

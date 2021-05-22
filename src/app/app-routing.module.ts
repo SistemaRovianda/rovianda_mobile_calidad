@@ -7,7 +7,7 @@ import { UsersResolve } from "./shared/resolvers/users.resolver";
 const routes: Routes = [
   {
     path: "login",
-    canActivate: [IsAuthGuard],
+    
     loadChildren: () =>
       import("./features/landing/layout/layout.module").then(
         (m) => m.LayoutPageModule
