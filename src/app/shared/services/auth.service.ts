@@ -41,8 +41,10 @@ export class AuthService {
     return from(
       this.auth
         .signInWithEmailAndPassword(email, password)
-        .then((userCredentials) =>
-          Promise.all([Promise.resolve(userCredentials.user.uid)])
+        .then((userCredentials) =>{
+          this._storage.set("uid",userCredentials.user.uid);
+          return Promise.all([Promise.resolve(userCredentials.user.uid)])
+        }
         )
     ).pipe(map(([uid]) => ({ uid })));
   }
@@ -54,6 +56,9 @@ export class AuthService {
   isAuth(): Observable<any> {
     return from(
       this._storage.get("token").then((token) => {
+        this._storage.get("uid").then((uid)=>{
+          localStorage.setItem("uid",uid);
+        });
         if (token) return Promise.resolve(true);
         return false;
       })
@@ -63,7 +68,6 @@ export class AuthService {
   verifyRole(): Observable<boolean> {
     return from(
       this._storage.get("role").then((role) => {
-        console.log("rol: ", role);
         if (role != null && role == "QUALITY") return Promise.resolve(true);
         return Promise.resolve(false);
       })

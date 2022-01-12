@@ -16,7 +16,7 @@ import { lotResponse } from "src/app/shared/models/product-inspection.interface"
 import * as fromCatalogLotsActions from "../../../product/store/catalog-lots/catalog-lots.actions";
 import { idProductInspectorSuccess } from "../../store/product-inspection/product-inspection.selectors";
 import { SELECT_USER_UID } from "src/app/features/landing/store/authentication/authentication.selectors";
-
+import { Storage } from "@ionic/storage";
 @Component({
   selector: "app-product-inspection",
   templateUrl: "./product-inspection.component.html",
@@ -66,11 +66,14 @@ export class ProductInspectionComponent implements OnInit {
 
   lots$: Observable<lotResponse[]>;
 
-  constructor(private store: Store<AppStoreState>, private route: Router) {
+  constructor(private store: Store<AppStoreState>, private route: Router,private _storage: Storage) {
     this.activeUsersBtn = false;
   }
-  uid:string=null;
+  uid:string="";
   ngOnInit() {
+    this._storage.get("uid").then((val)=>{
+      this.uid=val;
+    })
     this.lots$ = this.store.select(fromCatalogLots.fetchAllLots);
 
     this.store.dispatch(fromStepperActions.stepperInit({ steps: this.steps }));
@@ -86,9 +89,7 @@ export class ProductInspectionComponent implements OnInit {
         status: "PENDING",
       })
     );
-    this.store.pipe(select(SELECT_USER_UID)).subscribe((uid:string)=>{
-      this.uid =uid;
-    })
+    
     
   }
 
